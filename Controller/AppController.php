@@ -39,10 +39,22 @@ class AppController extends Controller {
 		'DebugKit.Toolbar',
 	);
 
+/**
+ * beforeFilter callback
+ *
+ * @access public
+ * @return void
+ */
 	public function beforeFilter() {
 		$this->setUpAuth();
 	}
 
+/**
+ * beforeRender callback
+ *
+ * @access public
+ * @return void
+ */
 	public function beforeRender() {
 		$this->setUpUser();
 	}
