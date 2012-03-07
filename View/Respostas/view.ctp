@@ -13,19 +13,6 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Resposta'), array('action' => 'edit', $resposta['Resposta']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Resposta'), array('action' => 'delete', $resposta['Resposta']['id']), null, __('Are you sure you want to delete # %s?', $resposta['Resposta']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Respostas'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Resposta'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Perguntas'), array('controller' => 'perguntas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Pergunta'), array('controller' => 'perguntas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Aluno'), array('controller' => 'alunos', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Alunos');?></h3>
 	<?php if (!empty($resposta['Aluno'])):?>
@@ -50,10 +37,4 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Aluno'), array('controller' => 'alunos', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>

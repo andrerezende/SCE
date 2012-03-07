@@ -1,10 +1,13 @@
 <div class="perguntas index">
 	<h2><?php echo __('Perguntas');?></h2>
+	<ul class="actions actions-horizontal">
+		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>
+	</ul>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('descricao');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('descricao');?></th>
+		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($perguntas as $pergunta): ?>
