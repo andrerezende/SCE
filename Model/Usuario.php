@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('AuthComponent', 'Controller/Component');
 /**
  * Usuario Model
  *
@@ -7,6 +8,10 @@ App::uses('AppModel', 'Model');
  * @property Log $Log
  */
 class Usuario extends AppModel {
+
+	const PERFIL_ADMIN = 'admin';
+	const PERFIL_COMUM = 'comum';
+
 /**
  * Use table
  *
@@ -30,5 +35,12 @@ class Usuario extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public function beforeSave() {
+		if (isset($this->data[$this->alias]['senha'])) {
+			$this->data[$this->alias]['senha'] = AuthComponent::password($this->data[$this->alias]['senha']);
+		}
+		return true;
+	}
 
 }
