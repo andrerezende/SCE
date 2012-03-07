@@ -502,6 +502,14 @@ p.error em {
 	clear: both;
 }
 
+.actions-horizontal {
+	margin-bottom: 10px;
+}
+
+.actions-horizontal li {
+	display: inline;
+}
+
 /* Buttons and button links */
 input[type=submit],
 .actions ul li a,
