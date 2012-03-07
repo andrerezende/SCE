@@ -5,7 +5,6 @@ App::uses('AuthComponent', 'Controller/Component');
  * Usuario Model
  *
  * @property Grupo $Grupo
- * @property Log $Log
  */
 class Usuario extends AppModel {
 
@@ -19,23 +18,12 @@ class Usuario extends AppModel {
  */
 	public $useTable = 'usuario';
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
+ * beforeSave callback
  *
- * @var array
+ * @return boolean
  */
-	public $belongsTo = array(
-		'Grupo' => array(
-			'className' => 'Grupo',
-			'foreignKey' => 'grupo_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
-
 	public function beforeSave() {
 		if (isset($this->data[$this->alias]['senha'])) {
 			$this->data[$this->alias]['senha'] = AuthComponent::password($this->data[$this->alias]['senha']);
