@@ -36,7 +36,7 @@ class Curso extends AppModel {
 		),
 		'ModalidadeCurso' => array(
 			'className' => 'ModalidadeCurso',
-			'foreignKey' => 'modalidade_curso_id',
+			'foreignKey' => 'modalidade_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
