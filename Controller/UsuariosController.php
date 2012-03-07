@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class UsuariosController extends AppController {
 
 /**
- * beforeFilter method
+ * beforeFilter callback
  *
  * @access public
  * @return void
@@ -60,8 +60,6 @@ class UsuariosController extends AppController {
 				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
 			}
 		}
-		$grupos = $this->Usuario->Grupo->find('list');
-		$this->set(compact('grupos'));
 	}
 
 /**
@@ -85,9 +83,8 @@ class UsuariosController extends AppController {
 			}
 		} else {
 			$this->request->data = $this->Usuario->read(null, $id);
+			unset($this->request->data['Usuario']['senha']);
 		}
-		$grupos = $this->Usuario->Grupo->find('list');
-		$this->set(compact('grupos'));
 	}
 
 /**
