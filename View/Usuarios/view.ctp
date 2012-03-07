@@ -11,6 +11,26 @@
 			<?php echo $this->Html->link($usuario['Grupo']['id'], array('controller' => 'grupos', 'action' => 'view', $usuario['Grupo']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Ativo'); ?></dt>
+		<dd>
+			<?php echo h($usuario['Usuario']['ativo']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Perfil'); ?></dt>
+		<dd>
+			<?php echo h($usuario['Usuario']['perfil']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Login'); ?></dt>
+		<dd>
+			<?php echo h($usuario['Usuario']['login']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Senha'); ?></dt>
+		<dd>
+			<?php echo h($usuario['Usuario']['senha']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

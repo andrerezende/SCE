@@ -4,6 +4,10 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('grupo_id');?></th>
+			<th><?php echo $this->Paginator->sort('ativo');?></th>
+			<th><?php echo $this->Paginator->sort('perfil');?></th>
+			<th><?php echo $this->Paginator->sort('login');?></th>
+			<th><?php echo $this->Paginator->sort('senha');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -13,6 +17,10 @@
 		<td>
 			<?php echo $this->Html->link($usuario['Grupo']['id'], array('controller' => 'grupos', 'action' => 'view', $usuario['Grupo']['id'])); ?>
 		</td>
+		<td><?php echo h($usuario['Usuario']['ativo']); ?>&nbsp;</td>
+		<td><?php echo h($usuario['Usuario']['perfil']); ?>&nbsp;</td>
+		<td><?php echo h($usuario['Usuario']['login']); ?>&nbsp;</td>
+		<td><?php echo h($usuario['Usuario']['senha']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $usuario['Usuario']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $usuario['Usuario']['id'])); ?>

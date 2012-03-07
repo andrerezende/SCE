@@ -3,7 +3,10 @@
 	<fieldset>
 		<legend><?php echo __('Add Usuario'); ?></legend>
 	<?php
-		echo $this->Form->input('grupo_id');
+		echo $this->Form->input('login');
+		echo $this->Form->input('senha', array('type' => 'password'));
+		echo $this->Form->input('ativo');
+		echo $this->Form->input('perfil');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

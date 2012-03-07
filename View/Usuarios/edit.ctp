@@ -5,6 +5,10 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('grupo_id');
+		echo $this->Form->input('ativo');
+		echo $this->Form->input('perfil');
+		echo $this->Form->input('login');
+		echo $this->Form->input('senha');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
