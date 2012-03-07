@@ -11,7 +11,7 @@ class AlunoTestCase extends CakeTestCase {
  *
  * @var array
  */
-	public $fixtures = array('app.aluno', 'app.curso', 'app.campus', 'app.modalidade', 'app.modalidade_curso', 'app.turno', 'app.regime_curso', 'app.regime', 'app.resposta', 'app.pergunta', 'app.aluno_resposta');
+	public $fixtures = array('app.aluno', 'app.curso', 'app.campus', 'app.modalidade_curso', 'app.turno', 'app.regime_curso', 'app.resposta', 'app.pergunta', 'app.aluno_resposta');
 
 /**
  * setUp method
