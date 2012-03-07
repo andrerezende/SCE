@@ -6,18 +6,12 @@
 			<?php echo h($pergunta['Pergunta']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Descrição'); ?></dt>
+		<dd>
+			<?php echo h($pergunta['Pergunta']['descricao']); ?>
+			&nbsp;
+		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Pergunta'), array('action' => 'edit', $pergunta['Pergunta']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Pergunta'), array('action' => 'delete', $pergunta['Pergunta']['id']), null, __('Are you sure you want to delete # %s?', $pergunta['Pergunta']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Perguntas'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Pergunta'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Respostas'), array('controller' => 'respostas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Resposta'), array('controller' => 'respostas', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
 <div class="related">
 	<h3><?php echo __('Related Respostas');?></h3>
@@ -43,10 +37,4 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Resposta'), array('controller' => 'respostas', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
 </div>
