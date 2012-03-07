@@ -7,10 +7,21 @@ App::uses('AppController', 'Controller');
  */
 class UsuariosController extends AppController {
 
+/**
+ * beforeFilter method
+ *
+ * @access public
+ * @return void
+ */
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('add', 'logout');
+	}
 
 /**
  * index method
  *
+ * @access public
  * @return void
  */
 	public function index() {
@@ -21,6 +32,7 @@ class UsuariosController extends AppController {
 /**
  * view method
  *
+ * @access public
  * @param string $id
  * @return void
  */
@@ -34,7 +46,8 @@ class UsuariosController extends AppController {
 
 /**
  * add method
- *
+ * 
+ * @access public
  * @return void
  */
 	public function add() {
@@ -54,6 +67,7 @@ class UsuariosController extends AppController {
 /**
  * edit method
  *
+ * @access public
  * @param string $id
  * @return void
  */
@@ -79,6 +93,7 @@ class UsuariosController extends AppController {
 /**
  * delete method
  *
+ * @access public
  * @param string $id
  * @return void
  */
@@ -97,4 +112,31 @@ class UsuariosController extends AppController {
 		$this->Session->setFlash(__('Usuario was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+/**
+ * login method
+ *
+ * @access public
+ * @return void
+ */
+	public function login() {
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$this->Session->setFlash(__('Invalid username or password, try again'));
+			}
+		}
+	}
+
+/**
+ * logout method
+ *
+ * @access public
+ * @return void
+ */
+	public function logout() {
+		$this->redirect($this->Auth->logout());
+	}
+
 }
