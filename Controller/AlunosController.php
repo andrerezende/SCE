@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class AlunosController extends AppController {
 
-
 /**
  * index method
  *
@@ -99,4 +98,9 @@ class AlunosController extends AppController {
 		$this->Session->setFlash(__('Aluno was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	public function formulario() {
+		
+	}
+
 }
