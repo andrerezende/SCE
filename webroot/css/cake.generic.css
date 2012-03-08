@@ -26,7 +26,7 @@ body {
 	background: #003d4c;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:90%;
+	font-size:70%;
 	margin: 0;
 }
 a {
@@ -257,7 +257,7 @@ form {
 	clear: both;
 	margin-right: 20px;
 	padding: 0;
-	width: 95%;
+	width: 55%;
 }
 fieldset {
 	border: none;
@@ -313,7 +313,7 @@ input, textarea {
 	font-size: 140%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
-	width:98%;
+	width:58%;
 }
 select {
 	clear: both;
@@ -321,7 +321,7 @@ select {
 	vertical-align: text-bottom;
 }
 select[multiple=multiple] {
-	width: 100%;
+	width: 60%;
 }
 option {
 	font-size: 120%;
