@@ -9,7 +9,7 @@
 		<li><?php echo $this->Html->link(__('Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Modalidade dos Cursos'), array('controller' => 'modalidade_cursos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Regime Cursos'), array('controller' => 'regime_cursos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Regime dos Cursos'), array('controller' => 'regime_cursos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Turnos'), array('controller' => 'turnos', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
