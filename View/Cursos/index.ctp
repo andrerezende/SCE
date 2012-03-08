@@ -10,6 +10,7 @@
 		<th><?php echo $this->Paginator->sort('modalidade_id');?></th>
 		<th><?php echo $this->Paginator->sort('turno_id');?></th>
 		<th><?php echo $this->Paginator->sort('regime_curso_id');?></th>
+		<th><?php echo $this->Paginator->sort('nome');?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -17,15 +18,18 @@
 	<tr>
 		<td><?php echo h($curso['Curso']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($curso['Campus']['id'], array('controller' => 'campus', 'action' => 'view', $curso['Campus']['id'])); ?>
-		</td>
-		<td><?php echo h($curso['Curso']['modalidade_id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($curso['Turno']['id'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
+			<?php echo $this->Html->link($curso['Campus']['nome'], array('controller' => 'campus', 'action' => 'view', $curso['Campus']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($curso['RegimeCurso']['id'], array('controller' => 'regime_cursos', 'action' => 'view', $curso['RegimeCurso']['id'])); ?>
+			<?php echo $this->Html->link($curso['ModalidadeCurso']['descricao'], array('controller' => 'modalidade_cursos', 'action' => 'view', $curso['ModalidadeCurso']['id'])); ?>
 		</td>
+		<td>
+			<?php echo $this->Html->link($curso['Turno']['descricao'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($curso['RegimeCurso']['descricao'], array('controller' => 'regime_cursos', 'action' => 'view', $curso['RegimeCurso']['id'])); ?>
+		</td>
+		<td><?php echo h($curso['Curso']['nome']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $curso['Curso']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $curso['Curso']['id'])); ?>

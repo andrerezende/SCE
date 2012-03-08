@@ -1,14 +1,19 @@
 <div class="modalidadeCursos index">
 	<h2><?php echo __('Modalidade Cursos');?></h2>
+	<ul class="actions actions-horizontal">
+		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>
+	</ul>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('descricao', 'Descrição');?></th>
+		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($modalidadeCursos as $modalidadeCurso): ?>
 	<tr>
 		<td><?php echo h($modalidadeCurso['ModalidadeCurso']['id']); ?>&nbsp;</td>
+		<td><?php echo h($modalidadeCurso['ModalidadeCurso']['descricao']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $modalidadeCurso['ModalidadeCurso']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $modalidadeCurso['ModalidadeCurso']['id'])); ?>
@@ -31,10 +36,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Modalidade Curso'), array('action' => 'add')); ?></li>
-	</ul>
 </div>

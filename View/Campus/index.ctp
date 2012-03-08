@@ -1,14 +1,19 @@
 <div class="campus index">
 	<h2><?php echo __('Campus');?></h2>
+	<ul class="actions actions-horizontal">
+		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>
+	</ul>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('nome');?></th>
+		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($campus as $campus): ?>
 	<tr>
 		<td><?php echo h($campus['Campus']['id']); ?>&nbsp;</td>
+		<td><?php echo h($campus['Campus']['nome']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $campus['Campus']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $campus['Campus']['id'])); ?>
@@ -31,12 +36,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Campus'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
