@@ -42,7 +42,7 @@ class RespostasController extends AppController {
 			$this->Resposta->create();
 			if ($this->Resposta->save($this->request->data)) {
 				$this->Session->setFlash(__('The resposta has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'perguntas', 'action' => 'view', $this->request->data['Resposta']['pergunta_id']));
 			} else {
 				$this->Session->setFlash(__('The resposta could not be saved. Please, try again.'));
 			}
