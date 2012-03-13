@@ -1,7 +1,7 @@
 <div class="actions">
 	<h3><?php echo __('Menu'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Preencher Formulário'), array('controller' => 'alunos', 'action' => 'formulario')); ?> </li>
+		<li><?php echo $this->Html->link(__('Preencher Formulário'), array('controller' => 'alunos', 'action' => 'passo_um')); ?> </li>
 		<li><?php echo $this->Html->link(__('Perguntas'), array('controller' => 'perguntas', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Respostas'), array('controller' => 'respostas', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Usuários'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
