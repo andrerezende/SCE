@@ -13,7 +13,12 @@ class Pergunta extends AppModel {
  */
 	public $useTable = 'pergunta';
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
+/**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'descricao';
 
 /**
  * hasMany associations
