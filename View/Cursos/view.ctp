@@ -8,22 +8,22 @@
 		</dd>
 		<dt><?php echo __('Campus'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($curso['Campus']['id'], array('controller' => 'campus', 'action' => 'view', $curso['Campus']['id'])); ?>
+			<?php echo $this->Html->link($curso['Campus']['nome'], array('controller' => 'campus', 'action' => 'view', $curso['Campus']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Modalidade Id'); ?></dt>
+		<dt><?php echo __('Modalidade'); ?></dt>
 		<dd>
-			<?php echo h($curso['Curso']['modalidade_id']); ?>
+			<?php echo $this->Html->link($curso['ModalidadeCurso']['descricao'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Turno'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($curso['Turno']['id'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
+			<?php echo $this->Html->link($curso['Turno']['descricao'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Regime Curso'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($curso['RegimeCurso']['id'], array('controller' => 'regime_cursos', 'action' => 'view', $curso['RegimeCurso']['id'])); ?>
+			<?php echo $this->Html->link($curso['RegimeCurso']['descricao'], array('controller' => 'regime_cursos', 'action' => 'view', $curso['RegimeCurso']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Nome'); ?></dt>
