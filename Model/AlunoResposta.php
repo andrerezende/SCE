@@ -7,14 +7,13 @@ App::uses('AppModel', 'Model');
  * @property Resposta $Resposta
  */
 class AlunoResposta extends AppModel {
+
 /**
  * Use table
  *
  * @var mixed False or table name
  */
 	public $useTable = 'aluno_resposta';
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
  * belongsTo associations
@@ -37,4 +36,5 @@ class AlunoResposta extends AppModel {
 			'order' => ''
 		)
 	);
+
 }

@@ -28,7 +28,10 @@ class AlunosController extends AppController {
 		if (!$this->Aluno->exists()) {
 			throw new NotFoundException(__('Invalid aluno'));
 		}
-		$this->set('aluno', $this->Aluno->read(null, $id));
+		$respostas = $this->Aluno->AlunoResposta->find('all', array('conditions' => array('aluno_id' => $id), 'contain' => array('Resposta' => array('Pergunta'))));
+//		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('list');
+		$aluno = $this->Aluno->read(null, $id);
+		$this->set(compact('aluno', 'respostas', 'perguntas'));
 	}
 
 /**
@@ -47,7 +50,7 @@ class AlunosController extends AppController {
 			}
 		}
 		$cursos = $this->Aluno->Curso->find('list');
-		$respostas = $this->Aluno->Resposta->find('list');
+		$respostas = $this->Aluno->AlunoResposta->Resposta->find('list');
 		$this->set(compact('cursos', 'respostas'));
 	}
 
@@ -99,8 +102,32 @@ class AlunosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
-	public function formulario() {
-		
+	public function passo_um() {
+		if ($this->request->is('post')) {
+			$this->Aluno->create();
+			if ($this->Aluno->save($this->request->data)) {
+				$this->Session->setFlash(__('Dados da identificação do estudante salvos'));
+				$this->redirect(array('action' => 'passo_dois', 'aluno_id' => $this->Aluno->id));
+			} else {
+				$this->Session->setFlash(__('Os dados não foram salvos, tente novamente'));
+			}
+		}
+		$cursos = $this->Aluno->Curso->find('list');
+		$this->set(compact('cursos'));
+	}
+
+	public function passo_dois() {
+		if ($this->request->is('post')) {
+			$this->Aluno->id = $this->params->named['aluno_id'];
+			if ($this->Aluno->saveAssociated($this->request->data)) {
+				$this->Session->setFlash(__('Dados da identificação do estudante salvos'));
+				$this->redirect(array('action' => 'view', $this->params->named['aluno_id']));
+			} else {
+				$this->Session->setFlash(__('Os dados não foram salvos, tente novamente'));
+			}
+		}
+		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all');
+		$this->set(compact('perguntas'));
 	}
 
 }

@@ -64,7 +64,25 @@ Configure::write('Aluno.faixa_etaria', array(
 ));
 
 Configure::write('Aluno.etnia', array(
-	Aluno::ETNIA_NEGRA => 'Negra',
-	Aluno::ETNIA_BRANCA => 'Branca',
-	Aluno::ETNIA_INDIGENA => 'Indígena',
+	'Negra' => 'Negra',
+	'Branca' => 'Branca',
+	'Indígena' => 'Indígena',
+));
+
+Configure::write('Aluno.sexo', array(
+	Aluno::SEXO_M => 'Masculino',
+	Aluno::SEXO_F => 'Feminino',
+));
+
+Configure::write('Aluno.fator_rh', array(
+	Aluno::FATOR_RH_P => 'Positivo',
+	Aluno::FATOR_RH_N => 'Negativo',
+));
+
+Configure::write('Aluno.estado_civil', array(
+	'Solteiro(a)' => 'Solteiro(a)',
+	'Casado(a)' => 'Casado(a)',
+	'Divorciado' => 'Divorciado',
+	'Desquitado' => 'Desquitado',
+	'Viúvo(a)' => 'Viúvo(a)',
 ));

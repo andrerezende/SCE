@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * Aluno Model
  *
  * @property Curso $Curso
- * @property Resposta $Resposta
+ * @property AlunoResposta $AlunoResposta
  */
 class Aluno extends AppModel {
 
@@ -18,9 +18,11 @@ class Aluno extends AppModel {
 	const FAIXA_ETARIA_42_46 = 8;
 	const FAIXA_ETARIA_47_MORE = 9;
 
-	const ETNIA_NEGRA = 'negra';
-	const ETNIA_BRANCA = 'branca';
-	const ETNIA_INDIGENA = 'indígena';
+	const SEXO_M = 'masculino';
+	const SEXO_F = 'feminino';
+
+	const FATOR_RH_P = true;
+	const FATOR_RH_N = false;
 
 /**
  * Use table
@@ -120,25 +122,23 @@ class Aluno extends AppModel {
 	);
 
 /**
- * hasAndBelongsToMany associations
+ * hasMany associations
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
-		'Resposta' => array(
-			'className' => 'Resposta',
-			'joinTable' => 'aluno_resposta',
+	public $hasMany = array(
+		'AlunoResposta' => array(
+			'className' => 'AlunoResposta',
 			'foreignKey' => 'aluno_id',
-			'associationForeignKey' => 'resposta_id',
-			'unique' => 'keepExisting',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
 			'offset' => '',
+			'exclusive' => '',
 			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
+			'counterQuery' => ''
 		)
 	);
 
