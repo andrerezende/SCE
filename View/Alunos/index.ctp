@@ -19,7 +19,7 @@
 	<tr>
 		<td><?php echo h($aluno['Aluno']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($aluno['Curso']['id'], array('controller' => 'cursos', 'action' => 'view', $aluno['Curso']['id'])); ?>
+			<?php echo $this->Html->link($aluno['Curso']['nome'], array('controller' => 'cursos', 'action' => 'view', $aluno['Curso']['id'])); ?>
 		</td>
 		<td><?php echo h($aluno['Aluno']['nome']); ?>&nbsp;</td>
 		<td><?php echo h($aluno['Aluno']['matricula']); ?>&nbsp;</td>

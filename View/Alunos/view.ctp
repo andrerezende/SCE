@@ -1,19 +1,9 @@
 <div class="alunos view">
-<h2><?php  echo __('Aluno');?></h2>
+<h2><?php  echo __('Aluno #') . h($aluno['Aluno']['id']);?>: <?php echo h($aluno['Aluno']['nome']); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($aluno['Aluno']['id']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Curso'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($aluno['Curso']['id'], array('controller' => 'cursos', 'action' => 'view', $aluno['Curso']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Nome'); ?></dt>
-		<dd>
-			<?php echo h($aluno['Aluno']['nome']); ?>
+			<?php echo $this->Html->link($aluno['Curso']['nome'], array('controller' => 'cursos', 'action' => 'view', $aluno['Curso']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Matricula'); ?></dt>
@@ -21,7 +11,7 @@
 			<?php echo h($aluno['Aluno']['matricula']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Rg'); ?></dt>
+		<dt><?php echo __('RG'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['rg']); ?>
 			&nbsp;
@@ -31,7 +21,7 @@
 			<?php echo h($aluno['Aluno']['orgao_expedidor']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cpf'); ?></dt>
+		<dt><?php echo __('CPF'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['cpf']); ?>
 			&nbsp;
@@ -46,12 +36,12 @@
 			<?php echo h($aluno['Aluno']['estado_civil']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Data Nascimento'); ?></dt>
+		<dt><?php echo __('Data de Nascimento'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['data_nascimento']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Endereco'); ?></dt>
+		<dt><?php echo __('Endereço'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['endereco']); ?>
 			&nbsp;
@@ -66,17 +56,17 @@
 			<?php echo h($aluno['Aluno']['celular']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cep'); ?></dt>
+		<dt><?php echo __('CEP'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['cep']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cidade Estado'); ?></dt>
+		<dt><?php echo __('Cidade / Estado'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['cidade_estado']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Ponto Referencia'); ?></dt>
+		<dt><?php echo __('Ponto de Referência'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['ponto_referencia']); ?>
 			&nbsp;
@@ -86,7 +76,7 @@
 			<?php echo h($aluno['Aluno']['etnia']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Religiao'); ?></dt>
+		<dt><?php echo __('Religião'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['religiao']); ?>
 			&nbsp;
@@ -96,54 +86,46 @@
 			<?php echo h($aluno['Aluno']['necessidade_especial']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Doenca Hereditaria'); ?></dt>
+		<dt><?php echo __('Doença Hereditária'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['doenca_hereditaria']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Remedio Controlado'); ?></dt>
+		<dt><?php echo __('Remédio Controlado'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['remedio_controlado']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Tipo Sanguineo'); ?></dt>
+		<dt><?php echo __('Tipo Sanguíneo'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['tipo_sanguineo']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Fator Rh'); ?></dt>
+		<dt><?php echo __('Fator RH'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['fator_rh']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Faixa Etaria'); ?></dt>
+		<dt><?php echo __('Faixa Etária'); ?></dt>
 		<dd>
 			<?php echo h($aluno['Aluno']['faixa_etaria']); ?>
 			&nbsp;
 		</dd>
 	</dl>
 	<div class="related">
-		<h3><?php echo __('Related Respostas');?></h3>
-		<?php if (!empty($aluno['Resposta'])):?>
+		<h3><?php echo __('Respostas');?></h3>
+		<?php if (!empty($aluno['AlunoResposta'])):?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
-			<th><?php echo __('Id'); ?></th>
-			<th><?php echo __('Pergunta Id'); ?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo __('Pergunta'); ?></th>
+			<th><?php echo __('Resposta'); ?></th>
 		</tr>
-		<?php
-			$i = 0;
-			foreach ($aluno['Resposta'] as $resposta): ?>
+		<?php foreach($respostas as $resposta):?>
 			<tr>
-				<td><?php echo $resposta['id'];?></td>
-				<td><?php echo $resposta['pergunta_id'];?></td>
-				<td class="actions">
-					<?php echo $this->Html->link(__('View'), array('controller' => 'respostas', 'action' => 'view', $resposta['id'])); ?>
-					<?php echo $this->Html->link(__('Edit'), array('controller' => 'respostas', 'action' => 'edit', $resposta['id'])); ?>
-					<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'respostas', 'action' => 'delete', $resposta['id']), null, __('Are you sure you want to delete # %s?', $resposta['id'])); ?>
-				</td>
+				<td><?php echo $resposta['Resposta']['Pergunta']['descricao'];?></td>
+				<td><?php echo $resposta['Resposta']['descricao'];?></td>
 			</tr>
-		<?php endforeach; ?>
+		<?php endforeach;?>
 		</table>
 	<?php endif; ?>
 	</div>
