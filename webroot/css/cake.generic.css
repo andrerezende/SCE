@@ -244,10 +244,10 @@ dt {
 	font-weight: bold;
 	padding-left: 4px;
 	vertical-align: top;
-	width: 10em;
+	width: 15em;
 }
 dd {
-	margin-left: 10em;
+	margin-left: 15em;
 	margin-top: -2em;
 	vertical-align: top;
 }
@@ -313,7 +313,7 @@ input, textarea {
 	font-size: 140%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
-	width:58%;
+	width:80%;
 }
 select {
 	clear: both;
@@ -321,7 +321,7 @@ select {
 	vertical-align: text-bottom;
 }
 select[multiple=multiple] {
-	width: 60%;
+	width: 81%;
 }
 option {
 	font-size: 120%;
