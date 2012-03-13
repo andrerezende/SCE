@@ -5,7 +5,7 @@
 	<?php
 	echo $this->Form->input('id');
 	echo $this->Form->input('pergunta_id');
-	echo $this->Form->input('Aluno');
+	echo $this->Form->input('descricao');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

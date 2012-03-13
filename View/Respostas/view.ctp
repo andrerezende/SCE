@@ -8,7 +8,12 @@
 		</dd>
 		<dt><?php echo __('Pergunta'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($resposta['Pergunta']['id'], array('controller' => 'perguntas', 'action' => 'view', $resposta['Pergunta']['id'])); ?>
+			<?php echo $this->Html->link($resposta['Pergunta']['descricao'], array('controller' => 'perguntas', 'action' => 'view', $resposta['Pergunta']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+			<?php echo h($resposta['Resposta']['descricao']); ?>
 			&nbsp;
 		</dd>
 	</dl>
