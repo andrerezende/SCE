@@ -57,7 +57,7 @@ class AppController extends Controller {
  */
 	public function beforeRender() {
 		$this->setUpUser();
-		$this->set('debugToolbarJavascript', array('libs' => array('/debug_kit/js/js_debug_toolbar.js')));
+//		$this->set('debugToolbarJavascript', array('libs' => array('/js/jquery.js', '/debug_kit/js/js_debug_toolbar.js')));
 	}
 
 /**
