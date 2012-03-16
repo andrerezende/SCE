@@ -9,10 +9,15 @@
 	<?php
 	echo $this->Html->meta('icon');
 
-	echo $this->Html->css('cake.generic');
+	echo $this->Html->css(array(
+		'cake.generic',
+		'bootstrap',
+		'bootstrap-responsive',
+	));
 	echo $this->Html->script(array(
 		'jquery',
 		'jquery.maskedinput',
+		'bootstrap',
 	));
 
 	echo $this->fetch('meta');
@@ -21,9 +26,9 @@
 	?>
 </head>
 <body>
+	<?php echo $this->element('nav');?>
 	<div id="container">
 		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('auth'); ?>
 
@@ -31,15 +36,7 @@
 
 			<?php echo $this->element('menu');?>
 		</div>
-		<div id="footer">
-			<p>
-			Instituto Federal de Educação, Ciência e Tecnologia Baiano - CNPJ: 10.724.903/0001-79<br />
-			Endereço: Rua do Rouxinol, 115 - Bairro: Imbuí. CEP: 41.720-052 - Salvador/BA<br />
-			Telefone: (71)3186-0001 Fax:(71)3186-0011<br />
-			Reitor: Sebastião Edson Moura - E-mail: gabinete@ifbaiano.edu.br<br />
-			Endereço provisório: Av. Paulo VI, 642 - Bairro: Pituba. CEP: 41.810-001 - Salvador/BA<br />
-			</p>
-		</div>
+		<?php echo $this->element('footer');?>
 	</div>
 </body>
 </html>
