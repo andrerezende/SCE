@@ -101,13 +101,12 @@ p {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
+	padding: 60px 20px 40px 20px;
 	overflow: auto;
 }
-#footer {
+footer {
 	clear: both;
 	padding: 6px 10px;
-	text-align: right;
 }
 
 /** containers **/
@@ -115,7 +114,7 @@ div.form,
 div.index,
 div.view {
 	float:right;
-	width:76%;
+	width:73%;
 	padding:10px 2%;
 }
 div.actions {
@@ -229,29 +228,6 @@ table td.actions a {
 	color: #c73e14;
 }
 
-/** Scaffold View **/
-dl {
-	line-height: 2em;
-	margin: 0em 0em;
-	width: 60%;
-}
-dl dd:nth-child(4n+2),
-dl dt:nth-child(4n+1) {
-	background: #f4f4f4;
-}
-
-dt {
-	font-weight: bold;
-	padding-left: 4px;
-	vertical-align: top;
-	width: 15em;
-}
-dd {
-	margin-left: 15em;
-	margin-top: -2em;
-	vertical-align: top;
-}
-
 /** Forms **/
 form {
 	clear: both;
@@ -263,11 +239,6 @@ fieldset {
 	border: none;
 	margin-bottom: 1em;
 	padding: 16px 10px;
-}
-fieldset legend {
-	color: #e32;
-	font-size: 160%;
-	font-weight: bold;
 }
 fieldset fieldset {
 	margin-top: 0;
