@@ -1,8 +1,5 @@
 <div class="alunos index">
 	<h2><?php echo __('Alunos');?></h2>
-	<ul class="actions actions-horizontal">
-		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>
-	</ul>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id');?></th>
