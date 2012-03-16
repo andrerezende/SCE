@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class CampusController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class CampusController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Campus->create();
 			if ($this->Campus->save($this->request->data)) {
-				$this->Session->setFlash(__('The campus has been saved'));
+				$this->Session->setFlash(__('The campus has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The campus could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The campus could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 	}
@@ -62,10 +61,10 @@ class CampusController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Campus->save($this->request->data)) {
-				$this->Session->setFlash(__('The campus has been saved'));
+				$this->Session->setFlash(__('The campus has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The campus could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The campus could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->Campus->read(null, $id);
@@ -87,10 +86,11 @@ class CampusController extends AppController {
 			throw new NotFoundException(__('Invalid campus'));
 		}
 		if ($this->Campus->delete()) {
-			$this->Session->setFlash(__('Campus deleted'));
+			$this->Session->setFlash(__('Campus deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Campus was not deleted'));
+		$this->Session->setFlash(__('Campus was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }

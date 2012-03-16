@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class RespostasController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class RespostasController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Resposta->create();
 			if ($this->Resposta->save($this->request->data)) {
-				$this->Session->setFlash(__('The resposta has been saved'));
+				$this->Session->setFlash(__('The resposta has been saved'), 'flash_success');
 				$this->redirect(array('controller' => 'perguntas', 'action' => 'view', $this->request->data['Resposta']['pergunta_id']));
 			} else {
-				$this->Session->setFlash(__('The resposta could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The resposta could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 		$perguntas = $this->Resposta->Pergunta->find('list');
@@ -65,10 +64,10 @@ class RespostasController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Resposta->save($this->request->data)) {
-				$this->Session->setFlash(__('The resposta has been saved'));
+				$this->Session->setFlash(__('The resposta has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The resposta could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The resposta could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->Resposta->read(null, $id);
@@ -93,10 +92,11 @@ class RespostasController extends AppController {
 			throw new NotFoundException(__('Invalid resposta'));
 		}
 		if ($this->Resposta->delete()) {
-			$this->Session->setFlash(__('Resposta deleted'));
+			$this->Session->setFlash(__('Resposta deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Resposta was not deleted'));
+		$this->Session->setFlash(__('Resposta was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }

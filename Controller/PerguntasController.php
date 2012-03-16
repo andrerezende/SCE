@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class PerguntasController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class PerguntasController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Pergunta->create();
 			if ($this->Pergunta->save($this->request->data)) {
-				$this->Session->setFlash(__('The pergunta has been saved'));
+				$this->Session->setFlash(__('The pergunta has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The pergunta could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The pergunta could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 	}
@@ -62,10 +61,10 @@ class PerguntasController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Pergunta->save($this->request->data)) {
-				$this->Session->setFlash(__('The pergunta has been saved'));
+				$this->Session->setFlash(__('The pergunta has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The pergunta could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The pergunta could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->Pergunta->read(null, $id);
@@ -87,10 +86,11 @@ class PerguntasController extends AppController {
 			throw new NotFoundException(__('Invalid pergunta'));
 		}
 		if ($this->Pergunta->delete()) {
-			$this->Session->setFlash(__('Pergunta deleted'));
+			$this->Session->setFlash(__('Pergunta deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Pergunta was not deleted'));
+		$this->Session->setFlash(__('Pergunta was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }

@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class TurnosController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class TurnosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Turno->create();
 			if ($this->Turno->save($this->request->data)) {
-				$this->Session->setFlash(__('The turno has been saved'));
+				$this->Session->setFlash(__('The turno has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The turno could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The turno could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 	}
@@ -62,10 +61,10 @@ class TurnosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Turno->save($this->request->data)) {
-				$this->Session->setFlash(__('The turno has been saved'));
+				$this->Session->setFlash(__('The turno has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The turno could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The turno could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->Turno->read(null, $id);
@@ -87,10 +86,11 @@ class TurnosController extends AppController {
 			throw new NotFoundException(__('Invalid turno'));
 		}
 		if ($this->Turno->delete()) {
-			$this->Session->setFlash(__('Turno deleted'));
+			$this->Session->setFlash(__('Turno deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Turno was not deleted'));
+		$this->Session->setFlash(__('Turno was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }

@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class CursosController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class CursosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Curso->create();
 			if ($this->Curso->save($this->request->data)) {
-				$this->Session->setFlash(__('The curso has been saved'));
+				$this->Session->setFlash(__('The curso has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The curso could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The curso could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 		$campus = $this->Curso->Campus->find('list');
@@ -67,10 +66,10 @@ class CursosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Curso->save($this->request->data)) {
-				$this->Session->setFlash(__('The curso has been saved'));
+				$this->Session->setFlash(__('The curso has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The curso could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The curso could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->Curso->read(null, $id);
@@ -97,10 +96,11 @@ class CursosController extends AppController {
 			throw new NotFoundException(__('Invalid curso'));
 		}
 		if ($this->Curso->delete()) {
-			$this->Session->setFlash(__('Curso deleted'));
+			$this->Session->setFlash(__('Curso deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Curso was not deleted'));
+		$this->Session->setFlash(__('Curso was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }

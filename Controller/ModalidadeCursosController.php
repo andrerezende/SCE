@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class ModalidadeCursosController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class ModalidadeCursosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->ModalidadeCurso->create();
 			if ($this->ModalidadeCurso->save($this->request->data)) {
-				$this->Session->setFlash(__('The modalidade curso has been saved'));
+				$this->Session->setFlash(__('The modalidade curso has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The modalidade curso could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The modalidade curso could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 	}
@@ -62,10 +61,10 @@ class ModalidadeCursosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ModalidadeCurso->save($this->request->data)) {
-				$this->Session->setFlash(__('The modalidade curso has been saved'));
+				$this->Session->setFlash(__('The modalidade curso has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The modalidade curso could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The modalidade curso could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->ModalidadeCurso->read(null, $id);
@@ -87,10 +86,11 @@ class ModalidadeCursosController extends AppController {
 			throw new NotFoundException(__('Invalid modalidade curso'));
 		}
 		if ($this->ModalidadeCurso->delete()) {
-			$this->Session->setFlash(__('Modalidade curso deleted'));
+			$this->Session->setFlash(__('Modalidade curso deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Modalidade curso was not deleted'));
+		$this->Session->setFlash(__('Modalidade curso was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }

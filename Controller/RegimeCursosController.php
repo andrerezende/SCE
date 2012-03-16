@@ -7,7 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class RegimeCursosController extends AppController {
 
-
 /**
  * index method
  *
@@ -41,10 +40,10 @@ class RegimeCursosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->RegimeCurso->create();
 			if ($this->RegimeCurso->save($this->request->data)) {
-				$this->Session->setFlash(__('The regime curso has been saved'));
+				$this->Session->setFlash(__('The regime curso has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The regime curso could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The regime curso could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
 	}
@@ -62,10 +61,10 @@ class RegimeCursosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->RegimeCurso->save($this->request->data)) {
-				$this->Session->setFlash(__('The regime curso has been saved'));
+				$this->Session->setFlash(__('The regime curso has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The regime curso could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The regime curso could not be saved. Please, try again.'), 'flash_failure');
 			}
 		} else {
 			$this->request->data = $this->RegimeCurso->read(null, $id);
@@ -87,10 +86,11 @@ class RegimeCursosController extends AppController {
 			throw new NotFoundException(__('Invalid regime curso'));
 		}
 		if ($this->RegimeCurso->delete()) {
-			$this->Session->setFlash(__('Regime curso deleted'));
+			$this->Session->setFlash(__('Regime curso deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Regime curso was not deleted'));
+		$this->Session->setFlash(__('Regime curso was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
 	}
+
 }
