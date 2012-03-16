@@ -6,20 +6,22 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('login');?></th>
 		<th><?php echo $this->Paginator->sort('ativo');?></th>
 		<th><?php echo $this->Paginator->sort('perfil');?></th>
-		<th><?php echo $this->Paginator->sort('login');?></th>
-		<th><?php echo $this->Paginator->sort('senha');?></th>
+		<th><?php echo $this->Paginator->sort('campus_id');?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 	foreach ($usuarios as $usuario): ?>
 	<tr>
 		<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['ativo']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['perfil']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['login']); ?>&nbsp;</td>
-		<td><?php echo h($usuario['Usuario']['senha']); ?>&nbsp;</td>
+		<td><?php echo $this->Util->ativo($usuario['Usuario']['ativo']); ?>&nbsp;</td>
+		<td><?php echo h($usuario['Usuario']['perfil']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($usuario['Campus']['nome'], array('controller' => 'campus', 'action' => 'view', $usuario['Campus']['id'])); ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $usuario['Usuario']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $usuario['Usuario']['id'])); ?>
