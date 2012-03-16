@@ -1,6 +1,7 @@
 <div class="alunos view">
-<h2><?php  echo __('Aluno #') . h($aluno['Aluno']['id']);?>: <?php echo h($aluno['Aluno']['nome']); ?></h2>
-	<dl>
+	<h1><?php  echo __('Aluno #') . h($aluno['Aluno']['id']);?>: <?php echo h($aluno['Aluno']['nome']); ?></h1>
+	<?php echo $this->Html->link('<i class="icon-pencil"></i> Editar', array('action' => 'edit', $aluno['Aluno']['id']), array('escape' => false, 'class' => 'btn'));?>
+	<dl class="dl-horizontal">
 		<dt><?php echo __('Curso'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($aluno['Curso']['nome'], array('controller' => 'cursos', 'action' => 'view', $aluno['Curso']['id'])); ?>
@@ -113,7 +114,7 @@
 		</dd>
 	</dl>
 	<div class="related">
-		<h3><?php echo __('Respostas');?></h3>
+		<h3><?php echo __('Questionário Socioeconômico');?></h3>
 		<?php if (!empty($aluno['AlunoResposta'])):?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>
