@@ -10,5 +10,12 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+/**
+ * List of behaviors to load when the model object is initialized.
+ *
+ * @var array
+ */
 	public $actsAs = array('Containable');
+
 }
