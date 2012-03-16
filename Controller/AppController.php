@@ -18,6 +18,7 @@ class AppController extends Controller {
 		'Form',
 		'Session',
 		'Time',
+		'Util'
 	);
 
 /**
@@ -36,7 +37,6 @@ class AppController extends Controller {
 			'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
 			'authorize' => array('Controller'),
 		),
-		'DebugKit.Toolbar',
 	);
 
 /**
@@ -94,6 +94,8 @@ class AppController extends Controller {
 			),
 			'Form',
 		);
+		$this->Auth->authError = 'Você não possui autorização.';
+		$this->Auth->flash = array('element' => 'flash_failure', 'key' => 'auth', 'params' => array());
 	}
 
 /**
