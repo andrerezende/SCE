@@ -142,4 +142,9 @@ class Aluno extends AppModel {
 		)
 	);
 
+	public function mesmoCampus($alunoId, $campusId) {
+		$aluno = $this->find('first', array('fields' => array('Aluno.id'), 'contain' => array('Curso'), 'conditions' => array('Aluno.id' => $alunoId, 'Curso.campus_id' => $campusId)));
+		return $aluno['Aluno']['id'] === $alunoId;
+	}
+
 }
