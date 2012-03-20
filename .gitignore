@@ -1,0 +1,5 @@
+tmp/*
+Config/database.php
+Config/email.php
+Config/core.php
+!empty
