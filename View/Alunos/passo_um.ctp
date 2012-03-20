@@ -11,6 +11,9 @@
 	<fieldset>
 		<legend><?php echo __('IDENTIFICAÇÃO DO ESTUDANTE'); ?></legend>
 	<?php
+	if (isset($this->params->named['aluno_id'])) {
+		echo $this->Form->input('Aluno.id', array('value' => $this->params->named['aluno_id'], 'type' => 'hidden'));
+	}
 	echo $this->Form->input('curso_id', array('empty' => 'Selecione'));
 	echo $this->Form->input('nome', array('class' => 'span3'));
 	echo $this->Form->input('matricula', array('label' => 'Matrícula'));
@@ -55,5 +58,5 @@
 	echo $this->Form->input('faixa_etaria', array('options' => Configure::read('Aluno.faixa_etaria')));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
+<?php echo $this->Form->end(__('Próximo'));?>
 </div>
