@@ -130,7 +130,7 @@ class Aluno extends AppModel {
 		'AlunoResposta' => array(
 			'className' => 'AlunoResposta',
 			'foreignKey' => 'aluno_id',
-			'dependent' => false,
+			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
 			'order' => '',
