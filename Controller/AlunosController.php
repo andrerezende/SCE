@@ -26,6 +26,16 @@ class AlunosController extends AppController {
 		if (parent::isAuthorized($usuario)) {
 			return true;
 		}
+		if (in_array($this->action, array('passo_um', 'passo_dois'))) {
+			if (isset($this->params->named['aluno_id']) && !empty($this->params->named['aluno_id'])) {
+				$alunoId = $this->params->named['aluno_id'];
+				if ($this->Aluno->mesmoCampus((int)$alunoId, $usuario['campus_id'])) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
 		if (in_array($this->action, array('edit', 'delete'))) {
 			$alunoId = $this->request->params['pass'][0];
 			if ($this->Aluno->mesmoCampus((int)$alunoId, $usuario['campus_id'])) {
@@ -34,6 +44,7 @@ class AlunosController extends AppController {
 				return false;
 			}
 		}
+		return true;
 	}
 
 /**
@@ -137,7 +148,13 @@ class AlunosController extends AppController {
 	}
 
 	public function passo_um() {
-		if ($this->request->is('post')) {
+		if (isset($this->params->named['aluno_id'])) {
+			$this->Aluno->id = $this->params->named['aluno_id'];
+			if (!$this->Aluno->exists()) {
+				throw new NotFoundException(__('Invalid aluno'));
+			}
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Aluno->create();
 			if ($this->Aluno->save($this->request->data)) {
 				$this->Session->setFlash(__('Dados da identificação do estudante salvos'), 'flash_success');
@@ -145,13 +162,21 @@ class AlunosController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Os dados não foram salvos, tente novamente'), 'flash_failure');
 			}
+		} else if (isset($this->params->named['aluno_id'])) {
+			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
 		$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
 		$this->set(compact('cursos'));
 	}
 
 	public function passo_dois() {
-		if ($this->request->is('post')) {
+		if (isset($this->params->named['aluno_id'])) {
+			$this->Aluno->id = $this->params->named['aluno_id'];
+			if (!$this->Aluno->exists()) {
+				throw new NotFoundException(__('Invalid aluno'));
+			}
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Aluno->id = $this->params->named['aluno_id'];
 			if ($this->Aluno->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Dados da identificação do estudante salvos'), 'flash_success');
@@ -159,6 +184,8 @@ class AlunosController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Os dados não foram salvos, tente novamente'), 'flash_failure');
 			}
+		} else {
+			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
 		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all');
 		$this->set(compact('perguntas'));
