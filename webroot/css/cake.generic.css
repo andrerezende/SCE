@@ -1,21 +1,4 @@
 @charset "utf-8";
-/**
- *
- * Generic CSS for CakePHP
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.webroot.css
- * @since         CakePHP(tm)
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
 * {
 	margin:0;
 	padding:0;
@@ -26,17 +9,8 @@ body {
 	background: #003d4c;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:90%;
+	font-size:70%;
 	margin: 0;
-}
-a {
-	color: #003d4c;
-	text-decoration: underline;
-	font-weight: bold;
-}
-a:hover {
-	color: #367889;
-	text-decoration:none;
 }
 a img {
 	border:none;
@@ -101,13 +75,12 @@ p {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
+	padding: 60px 20px 40px 20px;
 	overflow: auto;
 }
-#footer {
+footer {
 	clear: both;
 	padding: 6px 10px;
-	text-align: right;
 }
 
 /** containers **/
@@ -115,8 +88,7 @@ div.form,
 div.index,
 div.view {
 	float:right;
-	width:76%;
-	border-left:1px solid #666;
+	width:73%;
 	padding:10px 2%;
 }
 div.actions {
@@ -146,7 +118,6 @@ th {
 }
 th a {
 	display: block;
-	padding: 2px 4px;
 	text-decoration: none;
 }
 th a.asc:after {
@@ -154,15 +125,6 @@ th a.asc:after {
 }
 th a.desc:after {
 	content: ' ⇡';
-}
-table tr td {
-	padding: 6px;
-	text-align: left;
-	vertical-align: top;
-	border-bottom:1px solid #ddd;
-}
-table tr:nth-child(even) {
-	background: #f9f9f9;
 }
 td.actions {
 	text-align: center;
@@ -230,45 +192,17 @@ table td.actions a {
 	color: #c73e14;
 }
 
-/** Scaffold View **/
-dl {
-	line-height: 2em;
-	margin: 0em 0em;
-	width: 60%;
-}
-dl dd:nth-child(4n+2),
-dl dt:nth-child(4n+1) {
-	background: #f4f4f4;
-}
-
-dt {
-	font-weight: bold;
-	padding-left: 4px;
-	vertical-align: top;
-	width: 10em;
-}
-dd {
-	margin-left: 10em;
-	margin-top: -2em;
-	vertical-align: top;
-}
-
 /** Forms **/
 form {
 	clear: both;
 	margin-right: 20px;
 	padding: 0;
-	width: 95%;
+	width: 55%;
 }
 fieldset {
 	border: none;
 	margin-bottom: 1em;
 	padding: 16px 10px;
-}
-fieldset legend {
-	color: #e32;
-	font-size: 160%;
-	font-weight: bold;
 }
 fieldset fieldset {
 	margin-top: 0;
@@ -314,7 +248,7 @@ input, textarea {
 	font-size: 140%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
-	width:98%;
+	width:80%;
 }
 select {
 	clear: both;
@@ -322,7 +256,7 @@ select {
 	vertical-align: text-bottom;
 }
 select[multiple=multiple] {
-	width: 100%;
+	width: 81%;
 }
 option {
 	font-size: 120%;
@@ -503,6 +437,14 @@ p.error em {
 	clear: both;
 }
 
+.actions-horizontal {
+	margin-bottom: 10px;
+}
+
+.actions-horizontal li {
+	display: inline;
+}
+
 /* Buttons and button links */
 input[type=submit],
 .actions ul li a,
@@ -558,6 +500,7 @@ input[type=submit]:active,
 .related {
 	clear: both;
 	display: block;
+	margin-top: 15px;
 }
 
 /** Debugging **/

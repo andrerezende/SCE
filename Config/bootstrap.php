@@ -1,30 +1,9 @@
 <?php
-/**
- * This file is loaded automatically by the app/webroot/index.php file after core.php
- *
- * This file should load/create any application wide configuration settings, such as
- * Caching, Logging, loading additional configuration files.
- *
- * You should also use this file to include any files that provide global functions/constants
- * that your application uses.
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Config
- * @since         CakePHP(tm) v 0.10.8.2117
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
+App::uses('Usuario', 'Model');
+App::uses('Aluno', 'Model');
 
 // Setup a 'default' cache configuration for use in the application.
-Cache::config('default', array('engine' => 'File'));
+Cache::config('default', array('engine' => 'File', 'mask' => '0777'));
 
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
@@ -63,3 +42,47 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
+CakePlugin::loadAll(array(
+	'CakePtbr' => array('bootstrap' => true),
+));
+
+Configure::write('Usuario.perfis', array(
+	Usuario::PERFIL_ADMIN => 'Administrador',
+	Usuario::PERFIL_COMUM => 'Comum',
+));
+
+Configure::write('Aluno.faixa_etaria', array(
+	Aluno::FAIXA_ETARIA_13_15 => 'De 13 a 15 anos',
+	Aluno::FAIXA_ETARIA_16_18 => 'De 16 a 18 anos',
+	Aluno::FAIXA_ETARIA_19_21 => 'De 19 a 21 anos',
+	Aluno::FAIXA_ETARIA_22_26 => 'De 22 a 26 anos',
+	Aluno::FAIXA_ETARIA_27_31 => 'De 27 a 31 anos',
+	Aluno::FAIXA_ETARIA_32_36 => 'De 32 a 36 anos',
+	Aluno::FAIXA_ETARIA_37_41 => 'De 37 a 41 anos',
+	Aluno::FAIXA_ETARIA_42_46 => 'De 42 a 46 anos',
+	Aluno::FAIXA_ETARIA_47_MORE => 'A partir de 47 anos',
+));
+
+Configure::write('Aluno.etnia', array(
+	'Negra' => 'Negra',
+	'Branca' => 'Branca',
+	'Indígena' => 'Indígena',
+));
+
+Configure::write('Aluno.sexo', array(
+	Aluno::SEXO_M => 'Masculino',
+	Aluno::SEXO_F => 'Feminino',
+));
+
+Configure::write('Aluno.fator_rh', array(
+	Aluno::FATOR_RH_P => 'Positivo',
+	Aluno::FATOR_RH_N => 'Negativo',
+));
+
+Configure::write('Aluno.estado_civil', array(
+	'Solteiro(a)' => 'Solteiro(a)',
+	'Casado(a)' => 'Casado(a)',
+	'Divorciado' => 'Divorciado',
+	'Desquitado' => 'Desquitado',
+	'Viúvo(a)' => 'Viúvo(a)',
+));
