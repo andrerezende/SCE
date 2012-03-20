@@ -139,11 +139,11 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #0088cc;
+  color: #7EAD01;
   text-decoration: none;
 }
 a:hover {
-  color: #005580;
+  color: #7EAD7B;
   text-decoration: underline;
 }
 .row {
@@ -447,11 +447,11 @@ dd {
 .dl-horizontal dt {
   float: left;
   clear: left;
-  width: 150px;
+  width: 175px;
   text-align: right;
 }
 .dl-horizontal dd {
-  margin-left: 160px;
+  margin-left: 185px;
 }
 hr {
   margin: 18px 0;
