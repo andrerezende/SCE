@@ -29,15 +29,11 @@ class AlunosController extends AppController {
 		if (in_array($this->action, array('passo_um', 'passo_dois'))) {
 			if (isset($this->params->named['aluno_id']) && !empty($this->params->named['aluno_id'])) {
 				$alunoId = $this->params->named['aluno_id'];
-				if ($this->Aluno->mesmoCampus((int)$alunoId, $usuario['campus_id'])) {
-					return true;
-				} else {
-					return false;
-				}
 			}
-		}
-		if (in_array($this->action, array('edit', 'delete'))) {
+		} else if (in_array($this->action, array('edit', 'delete'))) {
 			$alunoId = $this->request->params['pass'][0];
+		}
+		if (isset($alunoId) && !empty($alunoId)) {
 			if ($this->Aluno->mesmoCampus((int)$alunoId, $usuario['campus_id'])) {
 				return true;
 			} else {
@@ -54,7 +50,7 @@ class AlunosController extends AppController {
  */
 	public function index() {
 		$campus_id = $this->Auth->user('campus_id');
-		if (!is_null($campus_id)) {
+		if ($campus_id != null) {
 			$this->paginate = array(
 				'Aluno' => array(
 					'contain' => array('Curso'),
@@ -79,25 +75,6 @@ class AlunosController extends AppController {
 		$respostas = $this->Aluno->AlunoResposta->find('all', array('conditions' => array('aluno_id' => $id), 'contain' => array('Resposta' => array('Pergunta'))));
 		$aluno = $this->Aluno->read(null, $id);
 		$this->set(compact('aluno', 'respostas', 'perguntas'));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Aluno->create();
-			if ($this->Aluno->save($this->request->data)) {
-				$this->Session->setFlash(__('The aluno has been saved'), 'flash_success');
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The aluno could not be saved. Please, try again.'), 'flash_failure');
-			}
-		}
-		$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
-		$this->set(compact('cursos'));
 	}
 
 /**
@@ -165,7 +142,13 @@ class AlunosController extends AppController {
 		} else if (isset($this->params->named['aluno_id'])) {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
-		$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
+		$campus_id = $this->Auth->user('campus_id');
+		if ($campus_id != null) {
+			$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $campus_id)));
+		} else {
+			$cursos = $this->Aluno->Curso->find('list');
+		}
+		
 		$this->set(compact('cursos'));
 	}
 

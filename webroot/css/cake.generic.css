@@ -126,6 +126,12 @@ th a.asc:after {
 th a.desc:after {
 	content: ' ⇡';
 }
+table tr td {
+	padding: 6px;
+	text-align: left;
+	vertical-align: top;
+	border-bottom:1px solid #ddd;
+}
 td.actions {
 	text-align: center;
 	white-space: nowrap;
