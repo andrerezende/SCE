@@ -103,3 +103,20 @@ Configure::write('Aluno.necessidade_especial', array(
 	'Múltiplas' => 'Múltiplas',
 	'Outra' => 'Outra',
 ));
+
+Configure::write('Aluno.religiao', array(
+	'Adventismo' => 'Adventismo',
+	'Budismo' => 'Budismo',
+	'Catolicismo' => 'Catolicismo',
+	'Cristianismo oriental' => 'Cristianismo oriental',
+	'Espiritismo' => 'Espiritismo',
+	'Islamismo' => 'Islamismo',
+	'Judaísmo' => 'Judaísmo',
+	'Mormonismo' => 'Mormonismo',
+	'Neopaganismo' => 'Neopaganismo',
+	'Protestantismo' => 'Protestantismo',
+	'Religiões afro-brasileiras e indígenas' => 'Religiões afro-brasileiras e indígenas',
+	'Religiões hoasqueiras' => 'Religiões hoasqueiras',
+	'Testemunhas de Jeová' => 'Testemunhas de Jeová',
+	'Outra' => 'Outra',
+));
