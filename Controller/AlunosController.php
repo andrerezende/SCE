@@ -13,7 +13,11 @@ class AlunosController extends AppController {
  * @var array
  * @access public
  */
-	public $paginate;
+	public $paginate = array(
+		'Aluno' => array(
+			'order' => array('Aluno.id'),
+		),
+	);
 
 /**
  * isAutorized method
@@ -51,7 +55,7 @@ class AlunosController extends AppController {
 	public function index() {
 		$campus_id = $this->Auth->user('campus_id');
 		if ($campus_id != null) {
-			$this->paginate = array(
+			$this->paginate += array(
 				'Aluno' => array(
 					'contain' => array('Curso'),
 					'conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))
@@ -170,7 +174,7 @@ class AlunosController extends AppController {
 		} else {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
-		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all');
+		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array('order' => array('Pergunta.id')));
 		$this->set(compact('perguntas'));
 	}
 
