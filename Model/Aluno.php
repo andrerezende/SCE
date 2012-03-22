@@ -8,16 +8,6 @@ App::uses('AppModel', 'Model');
  */
 class Aluno extends AppModel {
 
-	const FAIXA_ETARIA_13_15 = 1;
-	const FAIXA_ETARIA_16_18 = 2;
-	const FAIXA_ETARIA_19_21 = 3;
-	const FAIXA_ETARIA_22_26 = 4;
-	const FAIXA_ETARIA_27_31 = 5;
-	const FAIXA_ETARIA_32_36 = 6;
-	const FAIXA_ETARIA_37_41 = 7;
-	const FAIXA_ETARIA_42_46 = 8;
-	const FAIXA_ETARIA_47_MORE = 9;
-
 	const SEXO_M = 'masculino';
 	const SEXO_F = 'feminino';
 
@@ -85,6 +75,36 @@ class Aluno extends AppModel {
 			),
 		),
 		'sexo' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'estado_civil' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'religiao' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'etnia' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
