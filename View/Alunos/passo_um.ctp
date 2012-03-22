@@ -48,10 +48,16 @@
 	echo $this->Form->input('cep', array('label' => 'CEP', 'class' => 'span2'));
 	echo $this->Form->input('cidade_estado', array('label' => 'Cidade/UF', 'class' => 'span2'));
 	echo $this->Form->input('ponto_referencia', array('label' => 'Ponto de referência residencial', 'class' => 'span3'));
-	echo $this->Form->input('etnia', array('options' => Configure::read('Aluno.etnia'), 'empty' => 'Outra'));
 	echo $this->Form->label('Aluno.religiao', 'Religião', array('class' => 'control-label'));
 	echo $this->Form->input('religiao', array(
 		'options' => Configure::read('Aluno.religiao'),
+		'type' => 'radio',
+		'div' => 'control-group',
+		'legend' => false,
+	));
+	echo $this->Form->label('Aluno.etnia', 'Etnia', array('class' => 'control-label'));
+	echo $this->Form->input('etnia', array(
+		'options' => Configure::read('Aluno.etnia'),
 		'type' => 'radio',
 		'div' => 'control-group',
 		'legend' => false,

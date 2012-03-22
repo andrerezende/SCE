@@ -67,6 +67,7 @@ Configure::write('Aluno.etnia', array(
 	'Negra' => 'Negra',
 	'Branca' => 'Branca',
 	'Indígena' => 'Indígena',
+	'Outra' => 'Outra',
 ));
 
 Configure::write('Aluno.sexo', array(
