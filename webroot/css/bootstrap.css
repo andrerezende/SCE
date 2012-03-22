@@ -612,6 +612,7 @@ label {
   display: block;
   margin-bottom: 5px;
   color: #333333;
+  font-weight: bold;
 }
 input,
 textarea,
@@ -1143,6 +1144,14 @@ select:focus:required:invalid:focus {
 }
 .control-group {
   margin-bottom: 9px;
+}
+.control-group label {
+  margin-left: 17px;
+  line-height: 22px;
+  font-weight: normal;
+}
+.control-label {
+	padding: .5em;
 }
 legend + .control-group {
   margin-top: 18px;

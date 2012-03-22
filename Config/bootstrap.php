@@ -51,22 +51,11 @@ Configure::write('Usuario.perfis', array(
 	Usuario::PERFIL_COMUM => 'Comum',
 ));
 
-Configure::write('Aluno.faixa_etaria', array(
-	Aluno::FAIXA_ETARIA_13_15 => 'De 13 a 15 anos',
-	Aluno::FAIXA_ETARIA_16_18 => 'De 16 a 18 anos',
-	Aluno::FAIXA_ETARIA_19_21 => 'De 19 a 21 anos',
-	Aluno::FAIXA_ETARIA_22_26 => 'De 22 a 26 anos',
-	Aluno::FAIXA_ETARIA_27_31 => 'De 27 a 31 anos',
-	Aluno::FAIXA_ETARIA_32_36 => 'De 32 a 36 anos',
-	Aluno::FAIXA_ETARIA_37_41 => 'De 37 a 41 anos',
-	Aluno::FAIXA_ETARIA_42_46 => 'De 42 a 46 anos',
-	Aluno::FAIXA_ETARIA_47_MORE => 'A partir de 47 anos',
-));
-
 Configure::write('Aluno.etnia', array(
 	'Negra' => 'Negra',
 	'Branca' => 'Branca',
 	'Indígena' => 'Indígena',
+	'Outra' => 'Outra',
 ));
 
 Configure::write('Aluno.sexo', array(
@@ -85,4 +74,38 @@ Configure::write('Aluno.estado_civil', array(
 	'Divorciado' => 'Divorciado',
 	'Desquitado' => 'Desquitado',
 	'Viúvo(a)' => 'Viúvo(a)',
+));
+
+Configure::write('Aluno.tipo_sanguineo', array(
+	'A' => 'A',
+	'B' => 'B',
+	'AB' => 'AB',
+	'O' => 'O',
+));
+
+Configure::write('Aluno.necessidade_especial', array(
+	'Não' => 'Não',
+	'Visual - cegueira' => 'Visual - cegueira',
+	'Visual - baixa visão' => 'Visual - baixa visão',
+	'Motora' => 'Motora',
+	'Auditiva' => 'Auditiva',
+	'Múltiplas' => 'Múltiplas',
+	'Outra' => 'Outra',
+));
+
+Configure::write('Aluno.religiao', array(
+	'Adventismo' => 'Adventismo',
+	'Budismo' => 'Budismo',
+	'Catolicismo' => 'Catolicismo',
+	'Cristianismo oriental' => 'Cristianismo oriental',
+	'Espiritismo' => 'Espiritismo',
+	'Islamismo' => 'Islamismo',
+	'Judaísmo' => 'Judaísmo',
+	'Mormonismo' => 'Mormonismo',
+	'Neopaganismo' => 'Neopaganismo',
+	'Protestantismo' => 'Protestantismo',
+	'Religiões afro-brasileiras e indígenas' => 'Religiões afro-brasileiras e indígenas',
+	'Religiões hoasqueiras' => 'Religiões hoasqueiras',
+	'Testemunhas de Jeová' => 'Testemunhas de Jeová',
+	'Outra' => 'Outra',
 ));
