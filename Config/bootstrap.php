@@ -93,3 +93,13 @@ Configure::write('Aluno.tipo_sanguineo', array(
 	'AB' => 'AB',
 	'O' => 'O',
 ));
+
+Configure::write('Aluno.necessidade_especial', array(
+	'Não' => 'Não',
+	'Visual - cegueira' => 'Visual - cegueira',
+	'Visual - baixa visão' => 'Visual - baixa visão',
+	'Motora' => 'Motora',
+	'Auditiva' => 'Auditiva',
+	'Múltiplas' => 'Múltiplas',
+	'Outra' => 'Outra',
+));
