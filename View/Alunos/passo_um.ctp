@@ -27,7 +27,13 @@
 		'div' => 'control-group',
 		'legend' => false,
 	));
-	echo $this->Form->input('estado_civil', array('options' => Configure::read('Aluno.estado_civil')));
+	echo $this->Form->label('Aluno.estado_civil', 'Estado Civil', array('class' => 'control-label'));
+	echo $this->Form->input('estado_civil', array(
+		'options' => Configure::read('Aluno.estado_civil'),
+		'type' => 'radio',
+		'div' => 'control-group',
+		'legend' => false,
+	));
 	echo $this->Form->input('data_nascimento', array(
 		'dateFormat' => 'DMY',
 		'label' => 'Data de Nascimento',
