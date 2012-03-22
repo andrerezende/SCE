@@ -47,7 +47,13 @@
 	echo $this->Form->input('necessidade_especial', array('label' => 'Pessoa com necessidade educacional especial'));
 	echo $this->Form->input('doenca_hereditaria', array('label' => 'Possui doença hereditária ou outras'));
 	echo $this->Form->input('remedio_controlado', array('label' => 'Faz uso contínuo de remédio controlado'));
-	echo $this->Form->input('tipo_sanguineo', array('label' => 'Tipo sanguíneo', 'class' => 'span1'));
+	echo $this->Form->label('Aluno.tipo_sanguineo', 'Tipo sanguíneo', array('class' => 'control-label'));
+	echo $this->Form->input('tipo_sanguineo', array(
+		'options' => Configure::read('Aluno.tipo_sanguineo'),
+		'type' => 'radio',
+		'div' => 'control-group',
+		'legend' => false,
+	));
 	echo $this->Form->label('Aluno.fator_rh', 'Fator RH', array('class' => 'control-label'));
 	echo $this->Form->input('fator_rh', array(
 		'options' => Configure::read('Aluno.fator_rh'),

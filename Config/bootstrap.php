@@ -86,3 +86,10 @@ Configure::write('Aluno.estado_civil', array(
 	'Desquitado' => 'Desquitado',
 	'Viúvo(a)' => 'Viúvo(a)',
 ));
+
+Configure::write('Aluno.tipo_sanguineo', array(
+	'A' => 'A',
+	'B' => 'B',
+	'AB' => 'AB',
+	'O' => 'O',
+));
