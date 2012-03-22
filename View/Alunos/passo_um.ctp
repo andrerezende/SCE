@@ -85,7 +85,6 @@
 		'div' => 'control-group',
 		'legend' => false,
 	));
-	echo $this->Form->input('faixa_etaria', array('options' => Configure::read('Aluno.faixa_etaria')));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Próximo'));?>

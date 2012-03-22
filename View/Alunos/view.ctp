@@ -155,13 +155,6 @@
 							&nbsp;
 						</td>
 					</tr>
-					<tr>
-						<td><strong><?php echo __('Faixa Etária'); ?></strong></td>
-						<td>
-							<?php echo h($aluno['Aluno']['faixa_etaria']); ?>
-							&nbsp;
-						</td>
-					</tr>
 					<?php if (!empty($aluno['AlunoResposta'])):?>
 						<?php foreach($respostas as $resposta):?>
 							<tr>
