@@ -162,9 +162,14 @@ class AlunosController extends AppController {
 			if (!$this->Aluno->exists()) {
 				throw new NotFoundException(__('Invalid aluno'));
 			}
+			$alunoRespostas = $this->Aluno->AlunoResposta->find('all', array(
+				'conditions' => array('aluno_id' => $this->params->named['aluno_id']),
+				'contain' => array('Resposta' => array('Pergunta')),
+			));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Aluno->id = $this->params->named['aluno_id'];
+			$this->Aluno->AlunoResposta->deleteAll(array('aluno_id' => $this->Aluno->id));
 			if ($this->Aluno->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Dados da identificação do estudante salvos'), 'flash_success');
 				$this->redirect(array('action' => 'view', $this->Aluno->id));
@@ -175,7 +180,7 @@ class AlunosController extends AppController {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
 		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array('order' => array('Pergunta.id')));
-		$this->set(compact('perguntas'));
+		$this->set(compact('perguntas', 'alunoRespostas'));
 	}
 
 }
