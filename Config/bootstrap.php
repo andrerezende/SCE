@@ -71,8 +71,8 @@ Configure::write('Aluno.fator_rh', array(
 Configure::write('Aluno.estado_civil', array(
 	'Solteiro(a)' => 'Solteiro(a)',
 	'Casado(a)' => 'Casado(a)',
-	'Divorciado' => 'Divorciado',
-	'Desquitado' => 'Desquitado',
+	'Divorciado(a)' => 'Divorciado(a)',
+	'Desquitado(a)' => 'Desquitado(a)',
 	'Viúvo(a)' => 'Viúvo(a)',
 ));
 
