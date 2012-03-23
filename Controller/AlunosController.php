@@ -53,8 +53,7 @@ class AlunosController extends AppController {
  * @return void
  */
 	public function index() {
-		$campus_id = $this->Auth->user('campus_id');
-		if ($campus_id != null) {
+		if ($this->Auth->user('perfil') != Usuario::PERFIL_ADMIN) {
 			$this->paginate += array(
 				'Aluno' => array(
 					'contain' => array('Curso'),
@@ -146,9 +145,9 @@ class AlunosController extends AppController {
 		} else if (isset($this->params->named['aluno_id'])) {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
-		$campus_id = $this->Auth->user('campus_id');
-		if ($campus_id != null) {
-			$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $campus_id)));
+
+		if ($this->Auth->user('perfil') != Usuario::PERFIL_ADMIN) {
+			$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
 		} else {
 			$cursos = $this->Aluno->Curso->find('list');
 		}
