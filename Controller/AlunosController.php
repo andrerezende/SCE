@@ -127,6 +127,11 @@ class AlunosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+/**
+ * passo_um method
+ *
+ * @return void
+ */
 	public function passo_um() {
 		if (isset($this->params->named['aluno_id'])) {
 			$this->Aluno->id = $this->params->named['aluno_id'];
@@ -155,6 +160,11 @@ class AlunosController extends AppController {
 		$this->set(compact('cursos'));
 	}
 
+/**
+ * passo_dois method
+ *
+ * @return void
+ */
 	public function passo_dois() {
 		if (isset($this->params->named['aluno_id'])) {
 			$this->Aluno->id = $this->params->named['aluno_id'];
@@ -171,7 +181,7 @@ class AlunosController extends AppController {
 			$this->Aluno->AlunoResposta->deleteAll(array('aluno_id' => $this->Aluno->id));
 			if ($this->Aluno->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Dados da identificação do estudante salvos'), 'flash_success');
-				$this->redirect(array('action' => 'view', $this->Aluno->id));
+				$this->redirect(array('action' => 'passo_tres', 'aluno_id' => $this->Aluno->id));
 			} else {
 				$this->Session->setFlash(__('Os dados não foram salvos, tente novamente'), 'flash_failure');
 			}
@@ -180,6 +190,32 @@ class AlunosController extends AppController {
 		}
 		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array('order' => array('Pergunta.id')));
 		$this->set(compact('perguntas', 'alunoRespostas'));
+	}
+
+/**
+ * passo_tres method
+ *
+ * @return void
+ */
+	public function passo_tres() {
+		if (!isset($this->params->named['familiares'])) {
+			$this->render('/Elements/familiares');
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if (!isset($this->params->named['familiares'])) {
+				$this->redirect(array('action' => 'passo_tres', 'aluno_id' => $this->params->named['aluno_id'], 'familiares' => $this->request->data[$this->modelClass]['qtdFamiliares']));
+			}
+			$this->Aluno->id = $this->request->data('Aluno.id');
+			$this->Aluno->Familiar->deleteAll(array('aluno_id' => $this->Aluno->id));
+			if ($this->Aluno->saveAssociated($this->request->data, array('atomic' => true, 'validate' => 'first'))) {
+				$this->Session->setFlash(__('Cadastro do aluno salvo.'), 'flash_success');
+				$this->redirect(array('action' => 'view', $this->Aluno->id));
+			} else {
+				$this->Session->setFlash(__('Os dados não foram salvos, tente novamente'), 'flash_failure');
+			}
+		} else {
+			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
+		}
 	}
 
 }

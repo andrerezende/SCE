@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Curso $Curso
  * @property AlunoResposta $AlunoResposta
+ * @property Familiar $Familiar
  */
 class Aluno extends AppModel {
 
@@ -188,8 +189,21 @@ class Aluno extends AppModel {
 			'offset' => '',
 			'exclusive' => '',
 			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+			'counterQuery' => '',
+		),
+		'Familiar' => array(
+			'className' => 'Familiar',
+			'foreignKey' => 'aluno_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => '',
+		),
 	);
 
 	public function mesmoCampus($alunoId, $campusId) {
