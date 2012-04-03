@@ -15,7 +15,7 @@
 		echo $this->Form->input('Aluno.id', array('value' => $this->params->named['aluno_id'], 'type' => 'hidden'));
 	}
 	echo $this->Form->input('curso_id', array('empty' => 'Selecione'));
-	echo $this->Form->input('nome', array('class' => 'span3'));
+	echo $this->Form->input('nome', array('class' => 'span5'));
 	echo $this->Form->input('matricula', array('label' => 'Matrícula'));
 	echo $this->Form->input('rg', array('label' => 'RG'));
 	echo $this->Form->input('orgao_expedidor', array('label' => 'Órgão Expedidor', 'class' => 'span1'));
