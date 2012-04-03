@@ -1,4 +1,4 @@
-<div class="alunos index">
+<div class="alunos form">
 	<ol>
 		<?php
 		$i = 0;
@@ -31,7 +31,7 @@
 				</li>
 		<?php
 			endforeach;
-		echo $this->Form->end(__('Finalizar'));
+		echo $this->Form->end(__('Próximo'));
 		?>
 	</ol>
 </div>
