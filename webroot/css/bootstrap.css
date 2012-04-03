@@ -772,19 +772,19 @@ select:focus {
   width: 60px;
 }
 .input-small {
-  width: 90px;
+  width: 80px;
 }
 .input-medium {
-  width: 150px;
+  width: 140px;
 }
 .input-large {
-  width: 210px;
+  width: 200px;
 }
 .input-xlarge {
-  width: 270px;
+  width: 260px;
 }
 .input-xxlarge {
-  width: 530px;
+  width: 520px;
 }
 input[class*="span"],
 select[class*="span"],

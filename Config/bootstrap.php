@@ -2,6 +2,32 @@
 App::uses('Usuario', 'Model');
 App::uses('Aluno', 'Model');
 
+
+/**
+ * Cache configuration.
+ *
+ * Try apc or memcache, default to the namespaceFile cache.
+ */
+$cacheEngine = 'File';
+switch(true){
+	case function_exists('apc_cache_info') && ini_get('apc.enabled'):
+		$cacheEngine = 'Apc';
+		break;
+	case function_exists('xcache_info'):
+		$cacheEngine = 'Xcache';
+		break;
+	case class_exists('Memcache'):
+		$cacheEngine = 'Memcache';
+		break;
+	default:
+		break;
+}
+Configure::write('Cache.engine', $cacheEngine);
+
+Cache::config('_cake_core_', array('engine' => $cacheEngine, 'mask' => 0664));
+Cache::config('_cake_model_', array('engine' => $cacheEngine, 'mask' => 0664));
+Cache::config('default', array('engine' => $cacheEngine, 'mask' => 0644));
+
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File', 'mask' => '0777'));
 
