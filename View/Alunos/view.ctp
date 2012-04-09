@@ -155,13 +155,6 @@
 							&nbsp;
 						</td>
 					</tr>
-					<tr>
-						<td><strong><?php echo __('Faixa Etária'); ?></strong></td>
-						<td>
-							<?php echo h($aluno['Aluno']['faixa_etaria']); ?>
-							&nbsp;
-						</td>
-					</tr>
 					<?php if (!empty($aluno['AlunoResposta'])):?>
 						<?php foreach($respostas as $resposta):?>
 							<tr>
@@ -170,6 +163,35 @@
 							</tr>
 						<?php endforeach;?>
 					<?php endif; ?>
+				</tbody>
+			</table>
+		</div>
+		<div class="span8">
+			<h2>Familiares</h2>
+			<table class="table table-condensed">
+				<thead>
+					<th>#</th>
+					<th>Nome</th>
+					<th>Grau de Parentesco</th>
+					<th>Idade</th>
+					<th>Escolaridade</th>
+					<th>Ocupação</th>
+					<th>Local de Trabalho</th>
+					<th>Renda</th>
+				</thead>
+				<tbody>
+					<?php foreach($aluno['Familiar'] as $familiar):?>
+						<tr>
+							<td><?php echo $familiar['id'];?></td>
+							<td><?php echo $familiar['nome'];?></td>
+							<td><?php echo $familiar['grau_parentesco'];?></td>
+							<td><?php echo $familiar['idade'];?> anos</td>
+							<td><?php echo $familiar['escolaridade'];?></td>
+							<td><?php echo $familiar['ocupacao'];?></td>
+							<td><?php echo $familiar['local_trabalho'];?></td>
+							<td>R$ <?php echo $familiar['renda'];?></td>
+						</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 		</div>

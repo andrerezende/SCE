@@ -5,18 +5,9 @@ App::uses('AppModel', 'Model');
  *
  * @property Curso $Curso
  * @property AlunoResposta $AlunoResposta
+ * @property Familiar $Familiar
  */
 class Aluno extends AppModel {
-
-	const FAIXA_ETARIA_13_15 = 1;
-	const FAIXA_ETARIA_16_18 = 2;
-	const FAIXA_ETARIA_19_21 = 3;
-	const FAIXA_ETARIA_22_26 = 4;
-	const FAIXA_ETARIA_27_31 = 5;
-	const FAIXA_ETARIA_32_36 = 6;
-	const FAIXA_ETARIA_37_41 = 7;
-	const FAIXA_ETARIA_42_46 = 8;
-	const FAIXA_ETARIA_47_MORE = 9;
 
 	const SEXO_M = 'masculino';
 	const SEXO_F = 'feminino';
@@ -47,7 +38,7 @@ class Aluno extends AppModel {
 		'curso_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'message' => 'Campo obrigatório',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -57,7 +48,7 @@ class Aluno extends AppModel {
 		'nome' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Campo obrigatório',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -67,7 +58,7 @@ class Aluno extends AppModel {
 		'matricula' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Campo obrigatório',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -77,7 +68,7 @@ class Aluno extends AppModel {
 		'rg' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Campo obrigatório',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -87,7 +78,67 @@ class Aluno extends AppModel {
 		'sexo' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'estado_civil' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'religiao' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'etnia' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'tipo_sanguineo' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'necessidade_especial' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'fator_rh' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Campo obrigatório',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -138,8 +189,21 @@ class Aluno extends AppModel {
 			'offset' => '',
 			'exclusive' => '',
 			'finderQuery' => '',
-			'counterQuery' => ''
-		)
+			'counterQuery' => '',
+		),
+		'Familiar' => array(
+			'className' => 'Familiar',
+			'foreignKey' => 'aluno_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => '',
+		),
 	);
 
 	public function mesmoCampus($alunoId, $campusId) {

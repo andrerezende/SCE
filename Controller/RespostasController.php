@@ -47,8 +47,7 @@ class RespostasController extends AppController {
 			}
 		}
 		$perguntas = $this->Resposta->Pergunta->find('list');
-		$alunos = $this->Resposta->Aluno->find('list');
-		$this->set(compact('perguntas', 'alunos'));
+		$this->set(compact('perguntas'));
 	}
 
 /**
@@ -73,8 +72,7 @@ class RespostasController extends AppController {
 			$this->request->data = $this->Resposta->read(null, $id);
 		}
 		$perguntas = $this->Resposta->Pergunta->find('list');
-		$alunos = $this->Resposta->Aluno->find('list');
-		$this->set(compact('perguntas', 'alunos'));
+		$this->set(compact('perguntas'));
 	}
 
 /**
