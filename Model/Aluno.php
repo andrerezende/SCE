@@ -6,6 +6,7 @@ App::uses('AppModel', 'Model');
  * @property Curso $Curso
  * @property AlunoResposta $AlunoResposta
  * @property Familiar $Familiar
+ * @property RegimeCurso $RegimeCurso
  */
 class Aluno extends AppModel {
 
@@ -36,6 +37,16 @@ class Aluno extends AppModel {
  */
 	public $validate = array(
 		'curso_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Campo obrigatório',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'regime_curso_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Campo obrigatório',
@@ -166,6 +177,13 @@ class Aluno extends AppModel {
 		'Curso' => array(
 			'className' => 'Curso',
 			'foreignKey' => 'curso_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'RegimeCurso' => array(
+			'className' => 'RegimeCurso',
+			'foreignKey' => 'regime_curso_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
