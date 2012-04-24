@@ -4,6 +4,7 @@
 			<li class="nav-header">Menu</li>
 			<li><?php echo $this->Html->link(__('Preencher Formulário'), array('controller' => 'alunos', 'action' => 'passo_um')); ?> </li>
 			<li><?php echo $this->Html->link(__('Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(__('Anos de Questionários'), array('controller' => 'ano_questionarios', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(__('Perguntas'), array('controller' => 'perguntas', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(__('Respostas'), array('controller' => 'respostas', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(__('Campi'), array('controller' => 'campus', 'action' => 'index')); ?> </li>
