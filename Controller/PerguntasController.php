@@ -46,6 +46,14 @@ class PerguntasController extends AppController {
 				$this->Session->setFlash(__('The pergunta could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
+		$anoQuestionarios = $this->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+		$padrao = $this->Pergunta->AnoQuestionario->find('first', array(
+			'fields' => 'AnoQuestionario.id',
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('default' => true)
+		));
+		$this->set(compact('anoQuestionarios', 'padrao'));
 	}
 
 /**
@@ -69,6 +77,14 @@ class PerguntasController extends AppController {
 		} else {
 			$this->request->data = $this->Pergunta->read(null, $id);
 		}
+		$anoQuestionarios = $this->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+		$padrao = $this->Pergunta->AnoQuestionario->find('first', array(
+			'fields' => 'AnoQuestionario.id',
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('default' => true)
+		));
+		$this->set(compact('anoQuestionarios', 'padrao'));
 	}
 
 /**

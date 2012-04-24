@@ -49,8 +49,7 @@ class CursosController extends AppController {
 		$campus = $this->Curso->Campus->find('list');
 		$modalidadeCursos = $this->Curso->ModalidadeCurso->find('list');
 		$turnos = $this->Curso->Turno->find('list');
-		$regimeCursos = $this->Curso->RegimeCurso->find('list');
-		$this->set(compact('campus', 'modalidadeCursos', 'turnos', 'regimeCursos'));
+		$this->set(compact('campus', 'modalidadeCursos', 'turnos'));
 	}
 
 /**
