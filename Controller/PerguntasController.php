@@ -109,4 +109,24 @@ class PerguntasController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+/**
+ * get_perguntas_by_ano method
+ *
+ * @access public
+ * @return void
+ */
+	public function get_perguntas_by_ano() {
+		if ($this->request->is('ajax')) {
+			Configure::write('debug', 0);
+			$this->disableCache();
+			$this->autoRender = false;
+			$this->layout = 'ajax';
+
+			return json_encode($this->Pergunta->find('list', array(
+				'contain' => array(),
+				'conditions' => array('ano_questionario_id' => $this->request->data['AnoQuestionario']['id'])
+			)));
+		}
+	}
+
 }

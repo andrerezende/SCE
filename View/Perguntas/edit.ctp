@@ -4,7 +4,7 @@
 		<legend><?php echo __('Edit Pergunta'); ?></legend>
 	<?php
 	echo $this->Form->input('id');
-	echo $this->Form->input('ano_questionario_id', array('value' => $padrao['AnoQuestionario']['id']));
+	echo $this->Form->input('ano_questionario_id');
 	echo $this->Form->input('descricao', array('label' => 'Descrição', 'type' => 'textarea'));
 	?>
 	</fieldset>
