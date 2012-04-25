@@ -6,7 +6,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<?php echo $this->Html->link('Formulário de Avaliação Socioeconomica', '/', array('class' => 'brand'));?>
+			<?php echo $this->Html->link('Sistema Socioeconômico para Estudantes', '/', array('class' => 'brand'));?>
 			<div class="nav-collapse">
 				<div class="nav-collapse">
 					<ul class="nav pull-right">
