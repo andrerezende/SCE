@@ -203,8 +203,16 @@ class AlunosController extends AppController {
 		} else {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
-		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array('conditions' => array('Pergunta.ano_questionario_id' => $this->params->named['ano']), 'order' => array('Pergunta.id')));
-		$this->set(compact('perguntas', 'alunoRespostas'));
+		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array(
+			'conditions' => array('Pergunta.ano_questionario_id' => $this->params->named['ano']),
+			'order' => array('Pergunta.id')
+		));
+		$anoSelecionado = $this->AnoQuestionario->find('first', array(
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('id' => $this->params->named['ano'])
+		));
+		$this->set(compact('perguntas', 'alunoRespostas', 'anoSelecionado'));
 	}
 
 /**
