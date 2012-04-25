@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Pergunta'); ?></legend>
 	<?php
+	echo $this->Form->input('ano_questionario_id', array('value' => $padrao['AnoQuestionario']['id']));
 	echo $this->Form->input('descricao', array('label' => 'Descrição', 'type' => 'textarea'));
 	?>
 	</fieldset>

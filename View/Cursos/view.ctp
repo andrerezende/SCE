@@ -21,11 +21,6 @@
 			<?php echo $this->Html->link($curso['Turno']['descricao'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Regime Curso'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($curso['RegimeCurso']['descricao'], array('controller' => 'regime_cursos', 'action' => 'view', $curso['RegimeCurso']['id'])); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Nome'); ?></dt>
 		<dd>
 			<?php echo h($curso['Curso']['nome']); ?>

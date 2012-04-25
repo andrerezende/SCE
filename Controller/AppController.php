@@ -31,6 +31,7 @@ class AppController extends Controller {
  * @link http://book.cakephp.org/view/961/components-helpers-and-uses
  */
 	public $components = array(
+		'RequestHandler',
 		'Session',
 		'Auth' => array(
 			'loginAction' => array('controller' => 'usuarios', 'action' => 'login'),
@@ -47,7 +48,9 @@ class AppController extends Controller {
  * @return void
  */
 	public function beforeFilter() {
+		$this->RequestHandler->addInputType('json', array('json_decode', true));
 		$this->setUpAuth();
+		$this->getAnoPadrao();
 	}
 
 /**
@@ -114,6 +117,21 @@ class AppController extends Controller {
 			}
 			$this->set(compact('userData', 'isAdmin'));
 		}
+	}
+
+/**
+ * getAnoPadrao method
+ *
+ * @access protected
+ * @return void
+ */
+	protected function getAnoPadrao() {
+		$this->loadModel('AnoQuestionario');
+		$this->set('anoPadrao', $this->AnoQuestionario->find('first', array(
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('default' => true)
+		)));
 	}
 
 }

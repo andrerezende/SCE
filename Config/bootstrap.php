@@ -24,9 +24,9 @@ switch(true){
 }
 Configure::write('Cache.engine', $cacheEngine);
 
-Cache::config('_cake_core_', array('engine' => $cacheEngine, 'mask' => 0664));
-Cache::config('_cake_model_', array('engine' => $cacheEngine, 'mask' => 0664));
-Cache::config('default', array('engine' => $cacheEngine, 'mask' => 0644));
+Cache::config('_cake_core_', array('engine' => $cacheEngine, 'mask' => 0777));
+Cache::config('_cake_model_', array('engine' => $cacheEngine, 'mask' => 0777));
+//Cache::config('default', array('engine' => $cacheEngine, 'mask' => 0644));
 
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File', 'mask' => '0777'));

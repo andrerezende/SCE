@@ -47,7 +47,14 @@ class RespostasController extends AppController {
 			}
 		}
 		$perguntas = $this->Resposta->Pergunta->find('list');
-		$this->set(compact('perguntas'));
+		$anos = $this->Resposta->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+		$padrao = $this->Resposta->Pergunta->AnoQuestionario->find('first', array(
+			'fields' => 'AnoQuestionario.id',
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('default' => true)
+		));
+		$this->set(compact('perguntas', 'anos', 'padrao'));
 	}
 
 /**
@@ -70,9 +77,16 @@ class RespostasController extends AppController {
 			}
 		} else {
 			$this->request->data = $this->Resposta->read(null, $id);
+			$perguntas = $this->Resposta->Pergunta->find('list');
+			$anos = $this->Resposta->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+			$padrao = $this->Resposta->Pergunta->AnoQuestionario->find('first', array(
+				'fields' => 'AnoQuestionario.id',
+				'order' => 'AnoQuestionario.descricao DESC',
+				'contain' => array(),
+				'conditions' => array('default' => true)
+			));
+			$this->set(compact('perguntas', 'anos', 'padrao'));
 		}
-		$perguntas = $this->Resposta->Pergunta->find('list');
-		$this->set(compact('perguntas'));
 	}
 
 /**

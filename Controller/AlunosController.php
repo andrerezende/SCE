@@ -156,8 +156,8 @@ class AlunosController extends AppController {
 		} else {
 			$cursos = $this->Aluno->Curso->find('list');
 		}
-		
-		$this->set(compact('cursos'));
+		$regimeCursos = $this->Aluno->RegimeCurso->find('list');
+		$this->set(compact('cursos', 'regimeCursos'));
 	}
 
 /**
@@ -166,6 +166,18 @@ class AlunosController extends AppController {
  * @return void
  */
 	public function passo_dois() {
+		if (!isset($this->params->named['ano'])) {
+			$this->loadModel('AnoQuestionario');
+			$anoQuestionarios = $this->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+			$padrao = $this->AnoQuestionario->find('first', array(
+				'fields' => 'AnoQuestionario.id',
+				'order' => 'AnoQuestionario.descricao DESC',
+				'contain' => array(),
+				'conditions' => array('default' => true)
+			));
+			$this->set(compact('anoQuestionarios', 'padrao'));
+			$this->render('/Elements/seleciona_ano');
+		}
 		if (isset($this->params->named['aluno_id'])) {
 			$this->Aluno->id = $this->params->named['aluno_id'];
 			if (!$this->Aluno->exists()) {
@@ -178,6 +190,9 @@ class AlunosController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Aluno->id = $this->params->named['aluno_id'];
+			if (!isset($this->params->named['ano'])) {
+				$this->redirect(array('action' => 'passo_dois', 'aluno_id' => $this->Aluno->id, 'ano' => $this->request->data[$this->modelClass]['ano_questionario_id']));
+			}
 			$this->Aluno->AlunoResposta->deleteAll(array('aluno_id' => $this->Aluno->id));
 			if ($this->Aluno->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Dados da identificação do estudante salvos'), 'flash_success');
@@ -188,8 +203,16 @@ class AlunosController extends AppController {
 		} else {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
-		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array('order' => array('Pergunta.id')));
-		$this->set(compact('perguntas', 'alunoRespostas'));
+		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array(
+			'conditions' => array('Pergunta.ano_questionario_id' => $this->params->named['ano']),
+			'order' => array('Pergunta.id')
+		));
+		$anoSelecionado = $this->AnoQuestionario->find('first', array(
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('id' => $this->params->named['ano'])
+		));
+		$this->set(compact('perguntas', 'alunoRespostas', 'anoSelecionado'));
 	}
 
 /**

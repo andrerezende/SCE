@@ -234,7 +234,12 @@ form .input {
 form .required {
 	font-weight: bold;
 }
-form .required label:after {
+form div.input.required label:after {
+	color: #e32;
+	content: '*';
+	display:inline;
+}
+form label.control-label:after {
 	color: #e32;
 	content: '*';
 	display:inline;

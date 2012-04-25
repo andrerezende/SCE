@@ -9,7 +9,6 @@ App::uses('AppModel', 'Model');
  * @property RegimeCurso $RegimeCurso
  * @property Aluno $Aluno
  * @property ModalidadeCurso $ModalidadeCurso
- * @property Regime $Regime
  */
 class Curso extends AppModel {
 /**
@@ -35,11 +34,7 @@ class Curso extends AppModel {
 		'nome' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Digite um nome',
 			),
 		),
 	);
@@ -71,13 +66,6 @@ class Curso extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'RegimeCurso' => array(
-			'className' => 'RegimeCurso',
-			'foreignKey' => 'regime_curso_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
 	);
 
 /**

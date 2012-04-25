@@ -46,6 +46,14 @@ class PerguntasController extends AppController {
 				$this->Session->setFlash(__('The pergunta could not be saved. Please, try again.'), 'flash_failure');
 			}
 		}
+		$anoQuestionarios = $this->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+		$padrao = $this->Pergunta->AnoQuestionario->find('first', array(
+			'fields' => 'AnoQuestionario.id',
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('default' => true)
+		));
+		$this->set(compact('anoQuestionarios', 'padrao'));
 	}
 
 /**
@@ -69,6 +77,14 @@ class PerguntasController extends AppController {
 		} else {
 			$this->request->data = $this->Pergunta->read(null, $id);
 		}
+		$anoQuestionarios = $this->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao DESC'));
+		$padrao = $this->Pergunta->AnoQuestionario->find('first', array(
+			'fields' => 'AnoQuestionario.id',
+			'order' => 'AnoQuestionario.descricao DESC',
+			'contain' => array(),
+			'conditions' => array('default' => true)
+		));
+		$this->set(compact('anoQuestionarios', 'padrao'));
 	}
 
 /**
@@ -91,6 +107,26 @@ class PerguntasController extends AppController {
 		}
 		$this->Session->setFlash(__('Pergunta was not deleted'), 'flash_failure');
 		$this->redirect(array('action' => 'index'));
+	}
+
+/**
+ * get_perguntas_by_ano method
+ *
+ * @access public
+ * @return void
+ */
+	public function get_perguntas_by_ano() {
+		if ($this->request->is('ajax')) {
+			Configure::write('debug', 0);
+			$this->disableCache();
+			$this->autoRender = false;
+			$this->layout = 'ajax';
+
+			return json_encode($this->Pergunta->find('list', array(
+				'contain' => array(),
+				'conditions' => array('ano_questionario_id' => $this->request->data['AnoQuestionario']['id'])
+			)));
+		}
 	}
 
 }
