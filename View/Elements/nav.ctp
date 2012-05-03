@@ -9,7 +9,6 @@
 			<?php echo $this->Html->link('Sistema Socioeconômico para Estudantes', '/', array('class' => 'brand'));?>
 			<div class="nav-collapse">
 				<div class="nav-collapse">
-					<p class="navbar-text pull-left">Ano padrão: <?php echo $anoPadrao['AnoQuestionario']['descricao'];?> <i class="icon-info-sign icon-white"></i></p>
 					<ul class="nav pull-right">
 						<?php if (isset($userData) && !empty($userData)) :?>
 							<li>
@@ -18,7 +17,10 @@
 								</p>
 							</li>
 							<li class="divider-vertical"></li>
+							<li><p class="navbar-text pull-left">Ano padrão: <?php echo $anoPadrao['AnoQuestionario']['descricao'];?> <i class="icon-info-sign icon-white"></i></p></li>
+							<li class="divider-vertical"></li>
 							<li><p class="navbar-text"><i class="icon-off icon-white"></i> <?php echo $this->Html->link('Sair', array('controller' => 'usuarios', 'action' => 'logout'));?></p></li>
+							<li class="divider-vertical"></li>
 						<?php else:?>
 							<li class="divider-vertical"></li>
 							<li><?php echo $this->Html->link('Entrar', array('controller' => 'usuarios', 'action' => 'login'));?></li>
