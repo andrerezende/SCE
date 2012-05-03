@@ -1,5 +1,5 @@
 <div class="span9">
-	<h2>Formulário de Avaliação Socioeconomica</h2>
+	<h2>Sistema Socioeconômico para Estudantes</h2>
 
 	<?php
 	App::uses('Debugger', 'Utility');
