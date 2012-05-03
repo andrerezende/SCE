@@ -1,4 +1,4 @@
-<div class="regimeCursos form">
+<div class="span9">
 <?php echo $this->Form->create('RegimeCurso');?>
 	<fieldset>
 		<legend><?php echo __('Add Regime Curso'); ?></legend>

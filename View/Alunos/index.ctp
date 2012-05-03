@@ -1,4 +1,4 @@
-<div class="alunos index">
+<div class="span9">
 	<h2><?php echo __('Alunos');?></h2>
 	<table class="table">
 		<thead>

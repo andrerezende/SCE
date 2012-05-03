@@ -1,4 +1,4 @@
-<div class="alunoRespostas view">
+<div class="span9">
 <h2><?php  echo __('Aluno Resposta');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -17,17 +17,4 @@
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Aluno Resposta'), array('action' => 'edit', $alunoResposta['AlunoResposta']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Aluno Resposta'), array('action' => 'delete', $alunoResposta['AlunoResposta']['id']), null, __('Are you sure you want to delete # %s?', $alunoResposta['AlunoResposta']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Aluno Respostas'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Aluno Resposta'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Aluno'), array('controller' => 'alunos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Respostas'), array('controller' => 'respostas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Resposta'), array('controller' => 'respostas', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

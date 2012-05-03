@@ -6,7 +6,7 @@
 		$("#AlunoCep").mask("99999-999");
 	});
 </script>
-<div class="alunos form">
+<div class="span9">
 <?php
 $qtdFamiliares = $this->params->named['familiares'];
 echo $this->Form->create('Aluno', array('class' => 'form-horizontal', 'inputDefaults' => array('label' => false, 'div' => false)));

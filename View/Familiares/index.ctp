@@ -1,4 +1,4 @@
-<div class="familiares index">
+<div class="span9">
 	<h2><?php echo __('Familiares');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -50,12 +50,4 @@
 		echo $this->Paginator->next(__('próxima') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Novo Familiar'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Aluno'), array('controller' => 'alunos', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

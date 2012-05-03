@@ -1,4 +1,4 @@
-<div class="regimeCursos view">
+<div class="span9">
 <h2><?php  echo __('Regime Curso');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
