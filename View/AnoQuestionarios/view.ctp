@@ -1,4 +1,4 @@
-<div class="anoQuestionarios view">
+<div class="span9">
 <h2><?php  echo __('Ano de Questionários');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

@@ -1,4 +1,4 @@
-<div class="anoQuestionarios form">
+<div class="span9">
 <?php echo $this->Form->create('AnoQuestionario');?>
 	<fieldset>
 		<legend><?php echo __('Adicionar Ano'); ?></legend>

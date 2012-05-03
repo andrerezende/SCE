@@ -1,4 +1,4 @@
-<div class="anoQuestionarios index">
+<div class="span9">
 	<h2><?php echo __('Anos de Questionários');?></h2>
 	<ul class="actions actions-horizontal">
 		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>

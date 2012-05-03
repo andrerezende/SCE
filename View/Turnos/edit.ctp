@@ -1,4 +1,4 @@
-<div class="turnos form">
+<div class="span9">
 <?php echo $this->Form->create('Turno');?>
 	<fieldset>
 		<legend><?php echo __('Edit Turno'); ?></legend>

@@ -1,4 +1,4 @@
-<div class="usuarios view">
+<div class="span9">
 <h2><?php  echo __('Usuario');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

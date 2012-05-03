@@ -1,4 +1,4 @@
-<div class="modalidadeCursos index">
+<div class="span9">
 	<h2><?php echo __('Modalidade Cursos');?></h2>
 	<ul class="actions actions-horizontal">
 		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>

@@ -1,4 +1,4 @@
-<div class="modalidadeCursos view">
+<div class="span9">
 <h2><?php  echo __('Modalidade Curso');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

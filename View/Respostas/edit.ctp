@@ -38,7 +38,7 @@
 		});
 	});
 </script>
-<div class="respostas form">
+<div class="span9">
 <?php echo $this->Form->create('Resposta');?>
 	<fieldset>
 		<legend><?php echo __('Edit Resposta'); ?></legend>

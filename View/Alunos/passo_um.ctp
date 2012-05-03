@@ -6,7 +6,7 @@
 		$("#AlunoCep").mask("99999-999");
 	});
 </script>
-<div class="alunos form">
+<div class="span9">
 <?php echo $this->Form->create('Aluno');?>
 	<fieldset>
 		<legend><?php echo __('IDENTIFICAÇÃO DO ESTUDANTE'); ?></legend>

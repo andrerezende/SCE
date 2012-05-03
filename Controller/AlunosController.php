@@ -151,10 +151,18 @@ class AlunosController extends AppController {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
 
+		$cursoConditions = array(
+			'fields' => array('Curso.id', 'Curso.nome', 'ModalidadeCurso.descricao'),
+			'contain' => array(
+				'ModalidadeCurso',
+			),
+			'recursive' => 0,
+		);
 		if ($this->Auth->user('perfil') != Usuario::PERFIL_ADMIN) {
-			$cursos = $this->Aluno->Curso->find('list', array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
+			$cursoConditions = array_merge($cursoConditions, array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
+			$cursos = $this->Aluno->Curso->find('list', $cursoConditions);
 		} else {
-			$cursos = $this->Aluno->Curso->find('list');
+			$cursos = $this->Aluno->Curso->find('list', $cursoConditions);
 		}
 		$regimeCursos = $this->Aluno->RegimeCurso->find('list');
 		$this->set(compact('cursos', 'regimeCursos'));

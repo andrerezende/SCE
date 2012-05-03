@@ -1,4 +1,4 @@
-<div class="respostas view">
+<div class="span9">
 <h2><?php  echo __('Resposta');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

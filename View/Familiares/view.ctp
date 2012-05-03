@@ -1,4 +1,4 @@
-<div class="familiares view">
+<div class="span9">
 <h2><?php  echo __('Familiar');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -47,15 +47,4 @@
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Editar Familiar'), array('action' => 'edit', $familiar['Familiar']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Excluir Familiar'), array('action' => 'delete', $familiar['Familiar']['id']), null, __('Você tem certeza que deseja excluir o # %s?', $familiar['Familiar']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Familiares'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Familiar'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Aluno'), array('controller' => 'alunos', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
