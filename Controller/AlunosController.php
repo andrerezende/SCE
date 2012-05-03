@@ -152,17 +152,19 @@ class AlunosController extends AppController {
 		}
 
 		$cursoConditions = array(
-			'fields' => array('Curso.id', 'Curso.nome', 'ModalidadeCurso.descricao'),
+			'fields' => array('Curso.id', 'Curso.nome', 'Campus.nome', 'ModalidadeCurso.descricao'),
+			'separator'=>' / ',
 			'contain' => array(
 				'ModalidadeCurso',
+				'Campus',
 			),
 			'recursive' => 0,
 		);
 		if ($this->Auth->user('perfil') != Usuario::PERFIL_ADMIN) {
 			$cursoConditions = array_merge($cursoConditions, array('conditions' => array('Curso.campus_id' => $this->Auth->user('campus_id'))));
-			$cursos = $this->Aluno->Curso->find('list', $cursoConditions);
+			$cursos = $this->Aluno->Curso->find('superlist', $cursoConditions);
 		} else {
-			$cursos = $this->Aluno->Curso->find('list', $cursoConditions);
+			$cursos = $this->Aluno->Curso->find('superlist', $cursoConditions);
 		}
 		$regimeCursos = $this->Aluno->RegimeCurso->find('list');
 		$this->set(compact('cursos', 'regimeCursos'));
