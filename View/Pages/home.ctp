@@ -1,4 +1,4 @@
-<div class="index">
+<div class="span9">
 	<h2>Formulário de Avaliação Socioeconomica</h2>
 
 	<?php

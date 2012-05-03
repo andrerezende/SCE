@@ -1,4 +1,4 @@
-<div class="campus form">
+<div class="span9">
 <?php echo $this->Form->create('Campus');?>
 	<fieldset>
 		<legend><?php echo __('Add Campus'); ?></legend>

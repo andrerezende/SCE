@@ -1,4 +1,4 @@
-<div class="campus view">
+<div class="span9">
 <h2><?php  echo __('Campus');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

@@ -9,15 +9,16 @@
 			<?php echo $this->Html->link('Formulário de Avaliação Socioeconomica', '/', array('class' => 'brand'));?>
 			<div class="nav-collapse">
 				<div class="nav-collapse">
+					<p class="navbar-text pull-left">Ano padrão: <?php echo $anoPadrao['AnoQuestionario']['descricao'];?> <i class="icon-info-sign icon-white"></i></p>
 					<ul class="nav pull-right">
 						<?php if (isset($userData) && !empty($userData)) :?>
 							<li>
 								<p class="navbar-text">
-									Logado como <?php echo $this->Html->link($userData['login'], array('controller' => 'usuarios', 'action' => 'edit', $userData['id']));?>
+									<i class="icon-user icon-white"></i> <?php echo $this->Html->link($userData['login'], array('controller' => 'usuarios', 'action' => 'edit', $userData['id']));?>
 								</p>
 							</li>
 							<li class="divider-vertical"></li>
-							<li><?php echo $this->Html->link('Sair', array('controller' => 'usuarios', 'action' => 'logout'));?></li>
+							<li><p class="navbar-text"><i class="icon-off icon-white"></i> <?php echo $this->Html->link('Sair', array('controller' => 'usuarios', 'action' => 'logout'));?></p></li>
 						<?php else:?>
 							<li class="divider-vertical"></li>
 							<li><?php echo $this->Html->link('Entrar', array('controller' => 'usuarios', 'action' => 'login'));?></li>

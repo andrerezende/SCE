@@ -1,4 +1,4 @@
-<div class="turnos view">
+<div class="span9">
 <h2><?php  echo __('Turno');?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

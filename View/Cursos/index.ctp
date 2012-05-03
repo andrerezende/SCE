@@ -1,4 +1,4 @@
-<div class="cursos index">
+<div class="span9">
 	<h2><?php echo __('Cursos');?></h2>
 	<ul class="actions actions-horizontal">
 		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>
@@ -9,7 +9,6 @@
 		<th><?php echo $this->Paginator->sort('campus_id');?></th>
 		<th><?php echo $this->Paginator->sort('modalidade_id');?></th>
 		<th><?php echo $this->Paginator->sort('turno_id');?></th>
-		<th><?php echo $this->Paginator->sort('regime_curso_id');?></th>
 		<th><?php echo $this->Paginator->sort('nome');?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
@@ -25,9 +24,6 @@
 		</td>
 		<td>
 			<?php echo $this->Html->link($curso['Turno']['descricao'], array('controller' => 'turnos', 'action' => 'view', $curso['Turno']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($curso['RegimeCurso']['descricao'], array('controller' => 'regime_cursos', 'action' => 'view', $curso['RegimeCurso']['id'])); ?>
 		</td>
 		<td><?php echo h($curso['Curso']['nome']); ?>&nbsp;</td>
 		<td class="actions">

@@ -1,4 +1,4 @@
-<div class="familiares form">
+<div class="span9">
 <?php echo $this->Form->create('Familiar');?>
 	<fieldset>
 		<legend><?php echo __('Editar Familiar'); ?></legend>
@@ -15,14 +15,4 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Enviar', true));?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Ações'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Excluir'), array('action' => 'delete', $this->Form->value('Familiar.id')), null, __(Você tem certeza que deseja excluir o # %s?', $this->Form->value('Familiar.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Familiares'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Listar Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Novo Aluno'), array('controller' => 'alunos', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

@@ -1,4 +1,4 @@
-<div class="alunos view">
+<div class="span9">
 	<h1>
 		<?php  echo __('Aluno #') . h($aluno['Aluno']['id']);?>: <?php echo h($aluno['Aluno']['nome']); ?>
 		<?php echo $this->Html->link('<i class="icon-pencil"></i> Editar', array('action' => 'passo_um', 'aluno_id' => $aluno['Aluno']['id']), array('escape' => false, 'class' => 'btn'));?>

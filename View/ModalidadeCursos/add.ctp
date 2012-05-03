@@ -1,4 +1,4 @@
-<div class="modalidadeCursos form">
+<div class="span9">
 <?php echo $this->Form->create('ModalidadeCurso');?>
 	<fieldset>
 		<legend><?php echo __('Add Modalidade Curso'); ?></legend>
