@@ -3,7 +3,7 @@
 	<head>
 		<?php echo $this->Html->charset(); ?>
 		<title>
-			<?php echo __('Formulário de Avaliação Socioeconômica'); ?>
+			<?php echo __('Sistema Socioeconômico para Estudantes - '); ?>
 			<?php echo $title_for_layout; ?>
 		</title>
 		<?php
