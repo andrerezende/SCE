@@ -4,7 +4,7 @@
 			<li class="nav-header"><i class="icon-folder-open"></i> Menu</li>
 			<li><?php echo $this->Html->link(__('Preencher Formulário'), array('controller' => 'alunos', 'action' => 'passo_um')); ?> </li>
 			<li><?php echo $this->Html->link(__('Alunos'), array('controller' => 'alunos', 'action' => 'index')); ?> </li>
-			<?php if (isset($userData) && $userData['perfil'] == 'admin'):?>
+			<?php if (isset($userData) && $userData['Usuario']['perfil'] == 'admin'):?>
 				<li class="nav-header"><i class="icon-lock"></i> Administração</li>
 				<li><?php echo $this->Html->link(__('Anos de Questionários'), array('controller' => 'ano_questionarios', 'action' => 'index')); ?> </li>
 				<li><?php echo $this->Html->link(__('Perguntas'), array('controller' => 'perguntas', 'action' => 'index')); ?> </li>

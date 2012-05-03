@@ -6,6 +6,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('nome');?></th>
 		<th><?php echo $this->Paginator->sort('login');?></th>
 		<th><?php echo $this->Paginator->sort('ativo');?></th>
 		<th><?php echo $this->Paginator->sort('perfil');?></th>
@@ -16,6 +17,7 @@
 	foreach ($usuarios as $usuario): ?>
 	<tr>
 		<td><?php echo h($usuario['Usuario']['id']); ?>&nbsp;</td>
+		<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['login']); ?>&nbsp;</td>
 		<td><?php echo $this->Util->ativo($usuario['Usuario']['ativo']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['perfil']); ?>&nbsp;</td>
