@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Usuario'); ?></legend>
 	<?php
+	echo $this->Form->input('nome');
 	echo $this->Form->input('login');
 	echo $this->Form->input('senha', array('type' => 'password'));
 	echo $this->Form->input('ativo');

@@ -110,9 +110,11 @@ class AppController extends Controller {
  */
 	protected function setUpUser() {
 		$isAdmin = false;
-		$userData = $this->Auth->user();
-		if ($userData) {
-			if ($userData['perfil'] == Usuario::PERFIL_ADMIN) {
+		$userId = $this->Auth->user('id');
+		$this->loadModel('Usuario');
+		if ($userId) {
+			$userData = $this->Usuario->find('first', array('conditions' => array('Usuario.id' => $userId)));
+			if ($userData['Usuario']['perfil'] == Usuario::PERFIL_ADMIN) {
 				$isAdmin = true;
 			}
 			$this->set(compact('userData', 'isAdmin'));

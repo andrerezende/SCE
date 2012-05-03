@@ -4,6 +4,7 @@
 		<legend><?php echo __('Edit Usuario'); ?></legend>
 	<?php
 	echo $this->Form->input('id');
+	echo $this->Form->input('nome');
 	echo $this->Form->input('login');
 	echo $this->Form->input('senha', array('type' => 'password'));
 	echo $this->Form->input('ativo');

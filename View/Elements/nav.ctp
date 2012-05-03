@@ -14,7 +14,7 @@
 						<?php if (isset($userData) && !empty($userData)) :?>
 							<li>
 								<p class="navbar-text">
-									<i class="icon-user icon-white"></i> <?php echo $this->Html->link($userData['login'], array('controller' => 'usuarios', 'action' => 'edit', $userData['id']));?>
+									<i class="icon-user icon-white"></i> <?php echo $this->Html->link($userData['Usuario']['nome'] . ' - ' . $userData['Campus']['nome'], array('controller' => 'usuarios', 'action' => 'edit', $userData['Usuario']['id']));?>
 								</p>
 							</li>
 							<li class="divider-vertical"></li>
