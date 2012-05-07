@@ -13,13 +13,35 @@
 						<?php if (isset($userData) && !empty($userData)) :?>
 							<li>
 								<p class="navbar-text">
-									<i class="icon-user icon-white"></i> <?php echo $this->Html->link($userData['Usuario']['nome'] . ' - ' . $userData['Campus']['nome'], array('controller' => 'usuarios', 'action' => 'edit', $userData['Usuario']['id']));?>
+									<i class="icon-user icon-white"></i> <?php echo $this->Html->link(
+										$userData['Usuario']['nome'] . ' - ' . $userData['Campus']['nome'],
+										array('controller' => 'usuarios', 'action' => 'edit', $userData['Usuario']['id']
+									));?>
 								</p>
 							</li>
 							<li class="divider-vertical"></li>
-							<li><p class="navbar-text pull-left">Ano padrão: <?php echo $anoPadrao['AnoQuestionario']['descricao'];?> <i class="icon-info-sign icon-white"></i></p></li>
+							<li>
+								<p class="navbar-text pull-left">
+									Ano padrão: <?php echo $anoPadrao['AnoQuestionario']['descricao'];?>
+									<i class="icon-info-sign icon-white"></i>
+								</p>
+							</li>
 							<li class="divider-vertical"></li>
-							<li><p class="navbar-text"><i class="icon-off icon-white"></i> <?php echo $this->Html->link('Sair', array('controller' => 'usuarios', 'action' => 'logout'));?></p></li>
+							<li>
+								<p class="navbar-text">
+									<i class="icon-edit icon-white"></i> <?php echo $this->Html->link('Alterar senha', array(
+										'controller' => 'usuarios', 'action' => 'alterar_senha'
+									));?>
+								</p>
+							</li>
+							<li class="divider-vertical"></li>
+							<li>
+								<p class="navbar-text">
+									<i class="icon-off icon-white"></i> <?php echo $this->Html->link('Sair', array(
+										'controller' => 'usuarios', 'action' => 'logout'
+									));?>
+								</p>
+							</li>
 							<li class="divider-vertical"></li>
 						<?php else:?>
 							<li class="divider-vertical"></li>
