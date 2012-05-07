@@ -46,7 +46,7 @@ class UsuariosController extends AppController {
 
 /**
  * add method
- * 
+ *
  * @access public
  * @return void
  */
@@ -121,15 +121,14 @@ class UsuariosController extends AppController {
  * @return void
  */
 	public function login() {
-		if ($this->request->is('post')) {
-			if ($this->Auth->login()) {
-				if ($this->Auth->user('perfil') == Usuario::PERFIL_COMUM) {
-					$this->redirect(array('controller' => 'alunos', 'action' => 'index'));
-				}
-				$this->redirect($this->Auth->redirect());
-			} else {
-				$this->Session->setFlash(__('Invalid username or password, try again'), 'flash_failure');
+		$this->request->is('post') && $this->Auth->login();
+		if ($this->Auth->user()) {
+			if ($this->Auth->user('perfil') == Usuario::PERFIL_COMUM) {
+				$this->redirect(array('controller' => 'alunos', 'action' => 'index'));
 			}
+			$this->redirect($this->Auth->redirect());
+		} else {
+			$this->Session->setFlash(__('Invalid username or password, try again'), 'flash_failure');
 		}
 	}
 
@@ -141,6 +140,24 @@ class UsuariosController extends AppController {
  */
 	public function logout() {
 		$this->redirect($this->Auth->logout());
+	}
+
+/**
+ * alterar_senha method
+ *
+ * @access public
+ * @return void
+ */
+	public function alterar_senha() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data[$this->modelClass]['id'] = $this->Auth->user('id');
+			if ($this->Usuario->save($this->request->data)) {
+				$this->Session->setFlash(__('Senha alterada'), 'flash_success');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'), 'flash_failure');
+			}
+		}
 	}
 
 }
