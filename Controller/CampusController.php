@@ -8,6 +8,14 @@ App::uses('AppController', 'Controller');
 class CampusController extends AppController {
 
 /**
+ * Controller models
+ *
+ * @var array
+ * @access public
+ */
+	public $uses = array('Campus');
+
+/**
  * index method
  *
  * @return void

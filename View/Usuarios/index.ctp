@@ -25,6 +25,7 @@
 			<?php echo $this->Html->link($usuario['Campus']['nome'], array('controller' => 'campus', 'action' => 'view', $usuario['Campus']['id'])); ?>
 		</td>
 		<td class="actions">
+			<?php echo $this->Html->link(__('Alterar senha'), array('action' => 'alterar_senha', $usuario['Usuario']['id'])); ?>
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $usuario['Usuario']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $usuario['Usuario']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $usuario['Usuario']['id']), null, __('Are you sure you want to delete # %s?', $usuario['Usuario']['id'])); ?>
