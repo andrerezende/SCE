@@ -19,6 +19,23 @@ class UsuariosController extends AppController {
 	}
 
 /**
+ * isAutorized method
+ *
+ * @access public
+ * @param array $usuario
+ * @return boolean
+ */
+	public function isAuthorized($usuario) {
+		if (parent::isAuthorized($usuario)) {
+			return true;
+		}
+		if (in_array($this->action, array('alterar_senha'))) {
+			return true;
+		}
+		return false;
+	}
+
+/**
  * index method
  *
  * @access public
@@ -148,12 +165,15 @@ class UsuariosController extends AppController {
  * @access public
  * @return void
  */
-	public function alterar_senha() {
+	public function alterar_senha($id = null) {
+		if ($id == null || $this->Auth->user('perfil') == Usuario::PERFIL_COMUM) {
+			$id = $this->Auth->user('id');
+		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			$this->request->data[$this->modelClass]['id'] = $this->Auth->user('id');
+			$this->request->data[$this->modelClass]['id'] = $id;
 			if ($this->Usuario->save($this->request->data)) {
 				$this->Session->setFlash(__('Senha alterada'), 'flash_success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect('/');
 			} else {
 				$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'), 'flash_failure');
 			}

@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Ativo'); ?></dt>
 		<dd>
-			<?php echo h($usuario['Usuario']['ativo']); ?>
+			<?php echo $this->Util->ativo($usuario['Usuario']['ativo']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Perfil'); ?></dt>
