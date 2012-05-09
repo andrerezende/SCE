@@ -11,7 +11,7 @@
 			<?php echo $this->Html->link($resposta['Pergunta']['descricao'], array('controller' => 'perguntas', 'action' => 'view', $resposta['Pergunta']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Id'); ?></dt>
+		<dt><?php echo __('Descrição'); ?></dt>
 		<dd>
 			<?php echo h($resposta['Resposta']['descricao']); ?>
 			&nbsp;
