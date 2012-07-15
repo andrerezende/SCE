@@ -21,7 +21,9 @@
 		?>
 				<li>
 					<?php
-					echo $this->Form->input('AlunoResposta.' .$i++. '.resposta_id' , array(
+					$i++;
+					echo $this->Form->input('AlunoResposta.' .$i. '.id');
+					echo $this->Form->input('AlunoResposta.' .$i. '.resposta_id' , array(
 						'legend' => $pergunta['Pergunta']['descricao'],
 						'type' => 'radio',
 						'options' => $options,
