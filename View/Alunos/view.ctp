@@ -130,14 +130,14 @@
 					<tr>
 						<td><strong><?php echo __('Doença Hereditária'); ?></strong></td>
 						<td>
-							<?php echo h($aluno['Aluno']['doenca_hereditaria']); ?>
+							<?php echo $this->Util->ativo($aluno['Aluno']['doenca_hereditaria']); ?>
 							&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td><strong><?php echo __('Remédio Controlado'); ?></strong></td>
 						<td>
-							<?php echo h($aluno['Aluno']['remedio_controlado']); ?>
+							<?php echo $this->Util->ativo($aluno['Aluno']['remedio_controlado']); ?>
 							&nbsp;
 						</td>
 					</tr>
@@ -151,7 +151,7 @@
 					<tr>
 						<td><strong><?php echo __('Fator RH'); ?></strong></td>
 						<td>
-							<?php echo h($aluno['Aluno']['fator_rh']); ?>
+							<?php echo $this->Util->fatorRh($aluno['Aluno']['fator_rh']); ?>
 							&nbsp;
 						</td>
 					</tr>

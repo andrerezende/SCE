@@ -23,6 +23,7 @@
 					<?php
 					$i++;
 					echo $this->Form->input('AlunoResposta.' .$i. '.id');
+					echo $this->Form->input('AlunoResposta.' .$i. '.pergunta_id', array('type' => 'hidden', 'value' => $pergunta['Pergunta']['id']));
 					echo $this->Form->input('AlunoResposta.' .$i. '.resposta_id' , array(
 						'legend' => $pergunta['Pergunta']['descricao'],
 						'type' => 'radio',

@@ -19,4 +19,12 @@ class UtilHelper extends AppHelper {
 		}
 	}
 
+	public function fatorRh($fator) {
+		if ($fator == true) {
+			return $this->Html->tag('span', 'Positivo', array('class' => 'label label-success'));
+		} else {
+			return $this->Html->tag('span', 'Negativo', array('class' => 'label label-important'));
+		}
+	}
+
 }
