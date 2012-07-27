@@ -52,6 +52,13 @@ class Curso extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'RegimeCurso' => array(
+			'className' => 'RegimeCurso',
+			'foreignKey' => 'regime_curso_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'ModalidadeCurso' => array(
 			'className' => 'ModalidadeCurso',
 			'foreignKey' => 'modalidade_id',
