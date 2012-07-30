@@ -14,14 +14,6 @@ class AlunoResposta extends AppModel {
  * @var mixed False or table name
  */
 	public $useTable = 'aluno_resposta';
-        public $validate = array(
-            'resposta_id' => array(
-                'rule' => array('notempty'),
-                'message' => 'Verifique sua resposta!',
-		'allowEmpty' => false,
-		'required' => true,
-            )
-        );
 
 /**
  * belongsTo associations

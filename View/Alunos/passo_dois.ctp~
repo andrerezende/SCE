@@ -3,7 +3,7 @@
 	<ol>
 		<?php
 		$i = 0;
-		echo $this->Form->create('Aluno',array('class'=>'formError'));
+		echo $this->Form->create('Aluno');
 		echo $this->Form->input('Aluno.id', array('value' => $this->params->named['aluno_id'], 'type' => 'hidden'));
 			foreach ($perguntas as $pergunta) :
 				$value = null;
@@ -25,7 +25,7 @@
 					echo $this->Form->input('AlunoResposta.' .$i. '.id');
 					echo $this->Form->input('AlunoResposta.' .$i. '.pergunta_id', array('type' => 'hidden', 'value' => $pergunta['Pergunta']['id']));
 					echo $this->Form->input('AlunoResposta.' .$i. '.resposta_id' , array(
-						'legend' => $pergunta['Pergunta']['descricao'].'*',
+						'legend' => $pergunta['Pergunta']['descricao'],
 						'type' => 'radio',
 						'options' => $options,
 						'hiddenField' => false,

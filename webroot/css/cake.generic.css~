@@ -239,13 +239,6 @@ form div.input.required label:after {
 	content: '*';
 	display:inline;
 }
-.formError label:after{
-       border: 0px !important;
-       content:'' !important;
-      display:none;
-      
-     
-}
 form label.control-label:after {
 	color: #e32;
 	content: '*';
