@@ -203,7 +203,7 @@ class AlunosController extends AppController {
 			if (!isset($this->params->named['ano'])) {
 				$this->redirect(array('action' => 'passo_dois', 'aluno_id' => $this->Aluno->id, 'ano' => $this->request->data[$this->modelClass]['ano_questionario_id']));
 			}
-			$this->Aluno->AlunoResposta->deleteAll(array('aluno_id' => $this->Aluno->id));
+			$this->Aluno->id = $this->request->data['Aluno']['id'];
 			if ($this->Aluno->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Dados da identificação do estudante salvos'), 'flash_success');
 				$this->redirect(array('action' => 'passo_tres', 'aluno_id' => $this->Aluno->id));
@@ -213,15 +213,17 @@ class AlunosController extends AppController {
 		} else {
 			$this->request->data = $this->Aluno->read(null, $this->params->named['aluno_id']);
 		}
-		$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array(
-			'conditions' => array('Pergunta.ano_questionario_id' => $this->params->named['ano']),
-			'order' => array('Pergunta.id')
-		));
-		$anoSelecionado = $this->AnoQuestionario->find('first', array(
-			'order' => 'AnoQuestionario.descricao DESC',
-			'contain' => array(),
-			'conditions' => array('id' => $this->params->named['ano'])
-		));
+		if (isset($this->params->named['ano']) && !empty($this->params->named['ano'])) {
+			$perguntas = $this->Aluno->AlunoResposta->Resposta->Pergunta->find('all', array(
+				'conditions' => array('Pergunta.ano_questionario_id' => $this->params->named['ano']),
+				'order' => array('Pergunta.id')
+			));
+			$anoSelecionado = $this->AnoQuestionario->find('first', array(
+				'order' => 'AnoQuestionario.descricao DESC',
+				'contain' => array(),
+				'conditions' => array('id' => $this->params->named['ano'])
+			));
+		}
 		$this->set(compact('perguntas', 'alunoRespostas', 'anoSelecionado'));
 	}
 
