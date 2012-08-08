@@ -6,6 +6,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id');?></th>
+		<th><?php echo $this->Paginator->sort('AnoQuestionario.descricao', 'Descrição');?></th>
 		<th><?php echo $this->Paginator->sort('pergunta_id');?></th>
 		<th><?php echo $this->Paginator->sort('descricao', 'Descrição');?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
@@ -14,6 +15,7 @@
 	foreach ($respostas as $resposta): ?>
 	<tr>
 		<td><?php echo h($resposta['Resposta']['id']); ?>&nbsp;</td>
+		<td><?php echo h($resposta['Pergunta']['AnoQuestionario']['descricao']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($resposta['Pergunta']['descricao'], array('controller' => 'perguntas', 'action' => 'view', $resposta['Pergunta']['id'])); ?>
 		</td>

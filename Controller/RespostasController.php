@@ -13,7 +13,13 @@ class RespostasController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Resposta->recursive = 0;
+		$this->paginate = array(
+			'contain' => array(
+				'Pergunta' => array(
+					'AnoQuestionario',
+				),
+			),
+		);
 		$this->set('respostas', $this->paginate());
 	}
 
