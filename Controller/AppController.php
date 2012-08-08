@@ -12,7 +12,11 @@ App::uses('Usuario', 'Model');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-
+/**
+ * Controller helpers
+ *
+ * @var array
+ */
 	public $helpers = array(
 		'Html',
 		'Form',
@@ -26,7 +30,6 @@ class AppController extends Controller {
  * Array containing the names of components this controller uses. Component names
  * should not contain the "Component" portion of the classname.
  *
- * @access public
  * @var array
  * @link http://book.cakephp.org/view/961/components-helpers-and-uses
  */
@@ -61,7 +64,6 @@ class AppController extends Controller {
  */
 	public function beforeRender() {
 		$this->setUpUser();
-//		$this->set('debugToolbarJavascript', array('libs' => array('/js/jquery.js', '/debug_kit/js/js_debug_toolbar.js')));
 	}
 
 /**

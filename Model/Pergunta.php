@@ -21,6 +21,24 @@ class Pergunta extends AppModel {
 	public $displayField = 'descricao';
 
 /**
+ * Model behaviors
+ *
+ * @var array
+ */
+	public $actsAs = array(
+		'Search.Searchable',
+	);
+
+/**
+ * Configuration for Searchable behavior
+ *
+ * @var array
+ */
+	public $filterArgs = array(
+		'ano' => array('type' => 'value', 'field' => 'AnoQuestionario.id'),
+	);
+
+/**
  * belongsTo associations
  *
  * @var array

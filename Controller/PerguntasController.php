@@ -6,6 +6,21 @@ App::uses('AppController', 'Controller');
  * @property Pergunta $Pergunta
  */
 class PerguntasController extends AppController {
+/**
+ * Controller components
+ *
+ * @var array
+ */
+	public $components = array(
+		'Search.Prg',
+	);
+
+/**
+ * Configuration for Prg component
+ *
+ * @var array|boolean
+ */
+	public $presetVars = true;
 
 /**
  * index method
@@ -13,8 +28,13 @@ class PerguntasController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Pergunta->recursive = 0;
-		$this->set('perguntas', $this->paginate());
+		$this->Prg->commonProcess();
+		$this->paginate = array(
+			'conditions' => $this->Pergunta->parseCriteria($this->passedArgs),
+		);
+		$anos = $this->Pergunta->AnoQuestionario->find('list', array('order' => 'AnoQuestionario.descricao ASC'));
+		$perguntas = $this->paginate();
+		$this->set(compact('anos', 'perguntas'));
 	}
 
 /**
