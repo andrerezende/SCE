@@ -3,10 +3,20 @@
 	<ul class="actions actions-horizontal">
 		<li><?php echo $this->Html->link(__('Adicionar'), array('action' => 'add')); ?></li>
 	</ul>
+
+	<h5>Filtrar</h5>
+	<?php
+	echo $this->Form->create('Resposta', array(
+		'url' => array_merge(array('action' => 'index'), $this->params['pass'])
+	));
+	echo $this->Form->input('ano', array('div' => false, 'type' => 'select', 'options' => $anos, 'empty' => 'Todos', 'label' => false));
+	echo $this->Form->submit('Pesquisar', array('div' => false));
+	echo $this->Form->end();
+	?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id');?></th>
-		<th><?php echo $this->Paginator->sort('AnoQuestionario.descricao', 'Descrição');?></th>
+		<th><?php echo $this->Paginator->sort('AnoQuestionario.descricao', 'Ano');?></th>
 		<th><?php echo $this->Paginator->sort('pergunta_id');?></th>
 		<th><?php echo $this->Paginator->sort('descricao', 'Descrição');?></th>
 		<th class="actions"><?php echo __('Actions');?></th>
