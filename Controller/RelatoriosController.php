@@ -6,11 +6,10 @@ class RelatoriosController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->response->header(array('Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8'));
-		$this->response->header(array('Content-Disposition' => 'attachment;filename="' . $this->action . '.xls"'));
 	}
 
 	public function exportacao_completa() {
+		$this->prepareForExcel();
 		$this->set('data', $this->Relatorio->query('
 			SELECT
 	--cu.id AS curso_id,
@@ -86,6 +85,61 @@ AND	aq.id = pe.ano_questionario_id
 
 ORDER BY aluno_id, re.pergunta_id
 		'));
+	}
+
+	public function exportacao_respostas($ano = null) {
+		$this->loadModel('Aluno');
+		$this->loadModel('Pergunta');
+		$this->loadModel('AnoQuestionario');
+
+		if ($this->request->is('post')) {
+			$anoRelatorio = $this->request->data['Relatorio']['ano_questionario_id'];
+			$this->layout = false;
+			$this->prepareForExcel();
+			$anoQuestionario = $this->AnoQuestionario->find('first', array(
+				'conditions' => array('AnoQuestionario.id' => $anoRelatorio),
+			));
+			$perguntas = $this->Pergunta->find('list', array(
+				'order' => array('Pergunta.id'),
+				'conditions' => array(
+					'Pergunta.ano_questionario_id' => $anoRelatorio,
+				),
+			));
+			$alunos = $this->Aluno->find('all', array(
+				'contain' => array(
+					'Curso' => array(
+						'ModalidadeCurso',
+						'Turno',
+					),
+					'RegimeCurso',
+					'AlunoResposta' => array(
+						'order' => array('AlunoResposta.pergunta_id'),
+						'Resposta',
+						'Pergunta' => array(
+							'conditions' => array(
+								'Pergunta.ano_questionario_id' => $anoRelatorio,
+							),
+							'AnoQuestionario',
+						),
+					),
+				),
+				'order' => array('Aluno.id'),
+			));
+			$this->set(compact('perguntas', 'alunos', 'anoQuestionario'));
+		} else {
+			$this->layout = 'default';
+
+			$ano_questionarios = $this->AnoQuestionario->find('list', array(
+				'order' => 'AnoQuestionario.descricao',
+			));
+			$this->set(compact('ano_questionarios'));
+			$this->render('exportacao_respostas_form');
+		}
+	}
+
+	protected function prepareForExcel() {
+		$this->response->header(array('Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8'));
+		$this->response->header(array('Content-Disposition' => 'attachment;filename="' . $this->action . '.xls"'));
 	}
 
 }

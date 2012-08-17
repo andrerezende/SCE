@@ -42,7 +42,14 @@ class AlunoResposta extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+		'Pergunta' => array(
+			'className' => 'Pergunta',
+			'foreignKey' => 'pergunta_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+		),
 	);
 
 }

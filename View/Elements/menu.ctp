@@ -17,6 +17,7 @@
 				<li><?php echo $this->Html->link(__('Usuários'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
 				<li class="nav-header"><i class="icon-folder-open"></i> Relatórios</li>
 				<li><?php echo $this->Html->link(__('Exportação completa (excel)'), array('controller' => 'relatorios', 'action' => 'exportacao_completa')); ?> </li>
+				<li><?php echo $this->Html->link(__('Respostas (excel)'), array('controller' => 'relatorios', 'action' => 'exportacao_respostas')); ?> </li>
 			<?php endif;?>
 		</ul>
 	</div>
