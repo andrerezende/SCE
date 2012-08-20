@@ -27,7 +27,7 @@
 					echo $this->Form->input('AlunoResposta.' . $i . '.id', array('value' => $valueId, 'type' => 'hidden'));
 					echo $this->Form->input('AlunoResposta.' . $i . '.pergunta_id', array('type' => 'hidden', 'value' => $pergunta['Pergunta']['id']));
 					echo $this->Form->input('AlunoResposta.' . $i . '.resposta_id' , array(
-						'legend' => $pergunta['Pergunta']['descricao'] . '*',
+						'legend' => $pergunta['Pergunta']['descricao'] . '<font color="#e32">*</font>',
 						'type' => 'radio',
 						'options' => $options,
 						'hiddenField' => false,
