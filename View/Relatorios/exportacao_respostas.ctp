@@ -70,6 +70,9 @@
 			if (!isset($alunoResposta['Pergunta']) || empty($alunoResposta['Pergunta'])) {
 				continue;
 			}
+			if (!isset($alunoResposta['Resposta']) || empty($alunoResposta['Resposta'])) {
+				continue;
+			}
 			if ($alunoResposta['Resposta']['opcao'] != null) {
 				echo $this->Html->tag('td', utf8_decode($alunoResposta['Resposta']['opcao']));
 			} else {
