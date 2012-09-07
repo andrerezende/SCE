@@ -122,6 +122,7 @@ ORDER BY aluno_id, re.pergunta_id
 							'AnoQuestionario',
 						),
 					),
+					'Familiar',
 				),
 				'order' => array('Aluno.id'),
 			));
