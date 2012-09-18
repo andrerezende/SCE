@@ -27,11 +27,11 @@
 		<th>Regime do Curso</th>
 		<th><?php echo utf8_decode('Faixa Etária');?></th>
 		<th><?php echo utf8_decode('Ano do Questionário');?></th>
-		<th><?php echo utf8_decode('Quantidade de Familiares que moram com você');?></th>
-		<th><?php echo utf8_decode('Soma da renda dos Familiares que moram com você');?></th>
 		<?php foreach ($perguntas as $pergunta) :?>
 			<th><?php echo utf8_decode($pergunta);?></th>
 		<?php endforeach;?>
+		<th><?php echo utf8_decode('Quantidade de Familiares que moram com você');?></th>
+		<th><?php echo utf8_decode('Soma da renda dos Familiares que moram com você');?></th>
 	</tr>
 	<?php
 	foreach ($alunos as $aluno) :
@@ -73,8 +73,6 @@
 			echo $this->Html->tag('td', utf8_decode($aluno['RegimeCurso']['descricao']));
 			echo $this->Html->tag('td', utf8_decode($aluno['Aluno']['faixa_etaria']));
 			echo $this->Html->tag('td', utf8_decode($anoQuestionario['AnoQuestionario']['descricao']));
-			echo $this->Html->tag('td', $qtdFamiliares);
-			echo $this->Html->tag('td', 'R$ ' . number_format($rendaFamiliares, 2, ',', '.'));
 			foreach ($aluno['AlunoResposta'] as $alunoResposta) {
 				if (!isset($alunoResposta['Pergunta']) || empty($alunoResposta['Pergunta'])) {
 					continue;
@@ -88,6 +86,8 @@
 					echo $this->Html->tag('td', utf8_decode($alunoResposta['Resposta']['descricao']));
 				}
 			}
+			echo $this->Html->tag('td', $qtdFamiliares);
+			echo $this->Html->tag('td', 'R$ ' . number_format($rendaFamiliares, 2, ',', '.'));
 			?>
 		</tr>
 	<?php endforeach;?>
